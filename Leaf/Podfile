@@ -1,0 +1,19 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '16.0'
+
+target 'Leaf' do
+  use_modular_headers!
+
+  pod 'Swinject', '2.8.2'
+  pod 'R.swift', '7.2.4'
+  pod 'FirebaseAuth', '10.4.0'
+  pod 'Firebase/Database', '10.4.0'
+
+  # Pods for Leaf
+
+  target 'LeafTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
