@@ -215,12 +215,12 @@
 		F51E01522952389200D75D3D /* Leaf */ = {
 			isa = PBXGroup;
 			children = (
-				F5DCDB3029C1F5840030BB9A /* Info.plist */,
 				F56C47652954695000BD11D4 /* Main */,
 				F54BB1D229D05A5600283E13 /* Feature */,
 				F56C47682954696000BD11D4 /* Presentation */,
 				F54BB1F629D0619100283E13 /* Navigation */,
 				F54BB1D129D05A4000283E13 /* Helpers */,
+				F56C47692954698700BD11D4 /* SupportingFiles */,
 			);
 			path = Leaf;
 			sourceTree = "<group>";
@@ -603,7 +603,6 @@
 			children = (
 				F5DCDB2629C1F30B0030BB9A /* AppDelegate.swift */,
 				F5DCDB2829C1F3180030BB9A /* SceneDelegate.swift */,
-				F56C47692954698700BD11D4 /* SupportingFiles */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -621,6 +620,7 @@
 			children = (
 				F51E01572952389400D75D3D /* Assets.xcassets */,
 				F5B586A4295DC77300F93D91 /* R.generated.swift */,
+				F5DCDB3029C1F5840030BB9A /* Info.plist */,
 				F59C034A2991A3E60096CB55 /* Firebase */,
 				F5B5869D295DC4A800F93D91 /* Localization */,
 				F51E01592952389400D75D3D /* PreviewContent */,
@@ -1090,11 +1090,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Leaf/Main/SupportingFiles/PreviewContent\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Leaf/SupportingFiles/PreviewContent\"";
 				DEVELOPMENT_TEAM = 6D227VF4C6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Leaf/Info.plist;
+				INFOPLIST_FILE = Leaf/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -1119,11 +1119,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Leaf/Main/SupportingFiles/PreviewContent\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Leaf/SupportingFiles/PreviewContent\"";
 				DEVELOPMENT_TEAM = 6D227VF4C6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Leaf/Info.plist;
+				INFOPLIST_FILE = Leaf/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
