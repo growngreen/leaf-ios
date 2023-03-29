@@ -11,6 +11,7 @@ import Swinject
 
 protocol AuthCoordinating: AnyObject {
     func didAuthenticate()
+    func didRequestSignIn()
 }
 
 class AuthCoordinator: CoordinatorProtocol {
@@ -28,10 +29,11 @@ class AuthCoordinator: CoordinatorProtocol {
     }
 
     func start() {
-        let view = AuthScreen(viewModel: assembler.resolver.resolve(AuthViewModel.self, argument: self as AuthCoordinating)!)
+        let view = SignUpScreen(viewModel: assembler.resolver.resolve(SignUpViewModel.self, argument: self as AuthCoordinating)!)
         let hostingController = UIHostingController(rootView: view)
 
         navigationController.setViewControllers([hostingController], animated: false)
+        hostingController.navigationController?.navigationBar.prefersLargeTitles = true
     }
 }
 
@@ -41,5 +43,21 @@ extension AuthCoordinator: AuthCoordinating {
 
     func didAuthenticate() {
         parent?.coordinatorDidAuthenticate(self)
+    }
+
+    func didRequestSignIn() {
+        showSignIn()
+    }
+}
+
+// MARK: - Private
+
+private extension AuthCoordinator {
+
+    func showSignIn() {
+        let view = SignInScreen()
+        let hostingController = UIHostingController(rootView: view)
+
+        navigationController.pushViewController(hostingController, animated: true)
     }
 }

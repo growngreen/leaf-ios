@@ -21,7 +21,7 @@ class LaunchViewModel: ObservableObject {
     }
 
     func checkAuthState() async {
-        try? await Task.sleep(for: .seconds(0.5))
+        try? await Task.sleep(for: .seconds(1.5))
 
         let authState = await getAuthStateUseCase.execute()
 

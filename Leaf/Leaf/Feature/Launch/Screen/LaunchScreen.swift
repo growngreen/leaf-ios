@@ -26,8 +26,14 @@ struct LaunchScreen: View {
         .opacity(animate ? 0 : 1)
         .ignoresSafeArea(.all)
         .onAppear {
-            withAnimation(.easeOut(duration: 0.5)) {
-                animate = true
+            Task {
+                try? await Task.sleep(for: .seconds(1))
+
+                await MainActor.run(body: {
+                    withAnimation(.easeOut(duration: 0.5)) {
+                        animate = true
+                    }
+                })
             }
         }
         .task {

@@ -48,8 +48,29 @@ final class AuthAssembly: Assembly {
         }
         .inObjectScope(.transient)
 
-        container.register(AuthViewModel.self) { (resolver: Resolver, authCoordinating: AuthCoordinating) in
-            AuthViewModel(authCoordinating: authCoordinating)
+        container.register(ConfirmPasswordUseCase.self) { resolver in
+            ConfirmPasswordUseCase()
+        }
+        .inObjectScope(.transient)
+
+        container.register(ValidateNameUseCase.self) { resolver in
+            ValidateNameUseCase()
+        }
+        .inObjectScope(.transient)
+
+        container.register(ValidateEmailUseCase.self) { resolver in
+            ValidateEmailUseCase()
+        }
+        .inObjectScope(.transient)
+
+        container.register(SignUpViewModel.self) { (resolver: Resolver, authCoordinating: AuthCoordinating) in
+            SignUpViewModel(
+                authCoordinating: authCoordinating,
+                confirmPasswordUseCase: resolver.resolve(ConfirmPasswordUseCase.self)!,
+                validateEmailUseCase: resolver.resolve(ValidateEmailUseCase.self)!,
+                validateNameUseCase: resolver.resolve(ValidateNameUseCase.self)!,
+                signUpUseCase: resolver.resolve(SignUpUseCase.self)!
+            )
         }
         .inObjectScope(.transient)
     }
