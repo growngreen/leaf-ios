@@ -1,2 +1,2 @@
 # Leaf
-Expenses tracking app
+Expense tracking app
