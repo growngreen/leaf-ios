@@ -37,8 +37,6 @@ class AuthCoordinator: CoordinatorProtocol {
     }
 }
 
-// MARK: - AuthCoordinating
-
 extension AuthCoordinator: AuthCoordinating {
 
     func didAuthenticate() {
@@ -49,8 +47,6 @@ extension AuthCoordinator: AuthCoordinating {
         showSignIn()
     }
 }
-
-// MARK: - Private
 
 private extension AuthCoordinator {
 

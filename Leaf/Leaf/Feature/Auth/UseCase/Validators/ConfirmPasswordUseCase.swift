@@ -9,16 +9,18 @@ import Foundation
 
 struct ConfirmPasswordUseCase {
 
-    func execute(password: String, passwordConfirmation: String) -> Bool {
-        guard !password.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return false }
-        guard !passwordConfirmation.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return false }
+    private let validatePasswordUseCase: ValidatePasswordUseCase
 
-        let trimmedPassword = password.trimmingCharacters(in: .whitespacesAndNewlines)
-        let trimmedPasswordConfirmation = passwordConfirmation.trimmingCharacters(in: .whitespacesAndNewlines)
+    init(validatePasswordUseCase: ValidatePasswordUseCase) {
+        self.validatePasswordUseCase = validatePasswordUseCase
+    }
 
-        guard trimmedPassword.count > 6 else { return false }
-        guard trimmedPasswordConfirmation.count > 6 else { return false }
+    func execute(password: String, passwordConfirmation: String) throws {
+        try validatePasswordUseCase.execute(password)
+        try validatePasswordUseCase.execute(passwordConfirmation)
 
-        return trimmedPassword == trimmedPasswordConfirmation
+        guard password == passwordConfirmation else {
+            throw AuthError.invalidPassword
+        }
     }
 }

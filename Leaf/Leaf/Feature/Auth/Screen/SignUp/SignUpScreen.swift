@@ -10,124 +10,107 @@ import SwiftUI
 struct SignUpScreen: View {
 
     @ObservedObject private var viewModel: SignUpViewModel
-
-    @State private var fullNameTextField: String = ""
-    @State private var emailTextField: String = ""
-    @State private var passwordTextField: String = ""
-    @State private var confirmPasswordTextField: String = ""
-
-    @FocusState private var focusedField: SignUpViewModel.Field?
+    @FocusState private var focusedField: SignUpViewModel.SignUpField?
 
     init(viewModel: SignUpViewModel) {
         self.viewModel = viewModel
     }
 
     var body: some View {
-        ScrollView {
-
-            VStack {
-                Spacer()
-
-                textFieldSection
-                    .padding([.top, .bottom])
-
-                createAccountButton
-                    .padding()
-
-                Spacer()
-
-                footerText
+        Form {
+            Section {
+                nameTextField
+                emailTextField
+                passwordTextField
+                confirmPasswordTextField
+            } footer: {
+                sectionFooterText
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .navigationTitle(viewModel.title)
-            .padding()
+
+            Section {
+                submitButton
+            }
+            .disabled(viewModel.isSubmitButtonDisabled)
         }
-        .onTapGesture { focusedField = nil }
-        .onReceive(viewModel.$focusedField) { focusedField = $0 }
+        .autocorrectionDisabled()
+        .textInputAutocapitalization(.never)
+        .navigationTitle(R.string.localizable.sign_up_title())
+        .onReceive(viewModel.$focusedField) { field in
+            focusedField = field
+        }
     }
 }
 
-// MARK: - Components
-
 private extension SignUpScreen {
 
-    var textFieldSection: some View {
-
-        VStack(spacing: 15) {
-
-            InputTextField(
-                content: $fullNameTextField,
-                title: viewModel.fullNameTextFieldTitle,
-                contentType: .name,
-                isSecure: false,
-                isValid: viewModel.invalidField != .fullName,
-                errorMessage: viewModel.fullNameTextFieldErrorMessage,
-                onSubmit: { viewModel.onSubmit(on: .fullName) }
-            )
-                .focused($focusedField, equals: .fullName)
-
-            InputTextField(
-                content: $emailTextField,
-                title: viewModel.emailTextFieldTitle,
-                contentType: .emailAddress,
-                keyboardType: .emailAddress,
-                isSecure: false,
-                isValid: viewModel.invalidField != .email,
-                errorMessage: viewModel.emailTextFieldErrorMessage,
-                onSubmit: { viewModel.onSubmit(on: .email) }
-            )
-                .focused($focusedField, equals: .email)
-
-            InputTextField(
-                content: $passwordTextField,
-                title: viewModel.passwordTextFieldTitle,
-                contentType: .password,
-                isSecure: true,
-                isValid: viewModel.invalidField != .password,
-                errorMessage: viewModel.passwordTextFieldErrorMessage,
-                onSubmit: { viewModel.onSubmit(on: .password) }
-            )
-                .focused($focusedField, equals: .password)
-
-            InputTextField(
-                content: $confirmPasswordTextField,
-                title: viewModel.confirmPasswordTextFieldTitle,
-                contentType: .password,
-                isSecure: true,
-                isValid: viewModel.invalidField != .password,
-                errorMessage: viewModel.confirmPasswordFieldErrorMessage,
-                onSubmit: { viewModel.onSubmit(on: .confirmPassword) }
-            )
-                .focused($focusedField, equals: .confirmPassword)
+    var nameTextField: some View {
+        TextField(
+            R.string.localizable.name_text_field_title(),
+            text: $viewModel.name,
+            prompt: Text(R.string.localizable.name_text_field_title())
+        )
+        .focused($focusedField, equals: .name)
+        .textContentType(.name)
+        .onSubmit {
+            viewModel.submit(.name)
         }
     }
 
-    var createAccountButton: some View {
+    var emailTextField: some View {
+        TextField(
+            R.string.localizable.email_text_field_title(),
+            text: $viewModel.email,
+            prompt: Text(R.string.localizable.email_text_field_title())
+        )
+        .focused($focusedField, equals: .email)
+        .textContentType(.emailAddress)
+        .keyboardType(.emailAddress)
+        .onSubmit {
+            viewModel.submit(.email)
+        }
+    }
 
-        Button(action: {
-            viewModel.validate(
-                fullName: fullNameTextField,
-                email: emailTextField,
-                password: passwordTextField,
-                passwordConfirmation: confirmPasswordTextField
-            )
-        }, label: {
-            Text(viewModel.createAccountButtonTitle)
-                .foregroundColor(.white)
-                .background(content: {
-                    Color.blue.opacity(0.8)
-                        .frame(maxWidth: .infinity)
-                })
-        })
-        .frame(maxWidth: .infinity)
-        .frame(height: 50)
+    var passwordTextField: some View {
+        SecureField(
+            R.string.localizable.password_text_field_title(),
+            text: $viewModel.password,
+            prompt: Text(R.string.localizable.password_text_field_title())
+        )
+        .focused($focusedField, equals: .password)
+        .textContentType(.password)
+        .onSubmit {
+            viewModel.submit(.password)
+        }
+    }
+
+    var confirmPasswordTextField: some View {
+        SecureField(
+            R.string.localizable.confirm_password_text_field_title(),
+            text: $viewModel.confirmPassword,
+            prompt: Text(R.string.localizable.confirm_password_text_field_title())
+        )
+        .focused($focusedField, equals: .confirmPassword)
+        .textContentType(.password)
+        .submitLabel(.done)
+        .onSubmit {
+            viewModel.submit(.confirmPassword)
+        }
+    }
+
+    var sectionFooterText: some View {
+        Text(R.string.localizable.sign_up_section_footer_text())
+    }
+
+    var submitButton: some View {
+        Button(R.string.localizable.create_account_button_title()) {
+            viewModel.signUp()
+        }
     }
 
     var footerText: some View {
-
         HStack(spacing: 5) {
-            Text(viewModel.footerText)
-            Button(viewModel.signInFooterText) {
+            Text(R.string.localizable.sign_up_footer_text())
+            Button(R.string.localizable.sign_up_sign_in_footer_text()) {
                 viewModel.didTapSignIn()
             }
         }

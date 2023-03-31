@@ -11,11 +11,27 @@ struct SignUpUseCase {
 
     private let authRepository: AuthRepositoryProtocol
 
-    init(authRepository: AuthRepositoryProtocol) {
+    private let validateNameUseCase: ValidateNameUseCase
+    private let validateEmailUseCase: ValidateEmailUseCase
+    private let confirmPasswordUseCase: ConfirmPasswordUseCase
+
+    init(
+        authRepository: AuthRepositoryProtocol,
+        validateNameUseCase: ValidateNameUseCase,
+        validateEmailUseCase: ValidateEmailUseCase,
+        confirmPasswordUseCase: ConfirmPasswordUseCase
+    ) {
         self.authRepository = authRepository
+        self.validateNameUseCase = validateNameUseCase
+        self.validateEmailUseCase = validateEmailUseCase
+        self.confirmPasswordUseCase = confirmPasswordUseCase
     }
 
-    func execute(email: String, password: String) async throws {
-        try await authRepository.signUp(email: email, password: password)
+    func execute(name: String, email: String, password: String, confirmPassword: String) async throws {
+        try validateNameUseCase.execute(name)
+        try validateEmailUseCase.execute(email)
+        try confirmPasswordUseCase.execute(password: password, passwordConfirmation: confirmPassword)
+
+        try await authRepository.signUp(name: name, email: email, password: password)
     }
 }

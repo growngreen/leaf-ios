@@ -39,7 +39,12 @@ final class AuthAssembly: Assembly {
         .inObjectScope(.transient)
 
         container.register(SignUpUseCase.self) { resolver in
-            SignUpUseCase(authRepository: resolver.resolve(AuthRepositoryProtocol.self)!)
+            SignUpUseCase(
+                authRepository: resolver.resolve(AuthRepositoryProtocol.self)!,
+                validateNameUseCase: resolver.resolve(ValidateNameUseCase.self)!,
+                validateEmailUseCase: resolver.resolve(ValidateEmailUseCase.self)!,
+                confirmPasswordUseCase: resolver.resolve(ConfirmPasswordUseCase.self)!
+            )
         }
         .inObjectScope(.transient)
 
@@ -49,12 +54,7 @@ final class AuthAssembly: Assembly {
         .inObjectScope(.transient)
 
         container.register(ConfirmPasswordUseCase.self) { resolver in
-            ConfirmPasswordUseCase()
-        }
-        .inObjectScope(.transient)
-
-        container.register(ValidateNameUseCase.self) { resolver in
-            ValidateNameUseCase()
+            ConfirmPasswordUseCase(validatePasswordUseCase: resolver.resolve(ValidatePasswordUseCase.self)!)
         }
         .inObjectScope(.transient)
 
@@ -63,12 +63,19 @@ final class AuthAssembly: Assembly {
         }
         .inObjectScope(.transient)
 
+        container.register(ValidatePasswordUseCase.self) { resolver in
+            ValidatePasswordUseCase()
+        }
+        .inObjectScope(.transient)
+
+        container.register(ValidateNameUseCase.self) { resolver in
+            ValidateNameUseCase()
+        }
+        .inObjectScope(.transient)
+
         container.register(SignUpViewModel.self) { (resolver: Resolver, authCoordinating: AuthCoordinating) in
             SignUpViewModel(
                 authCoordinating: authCoordinating,
-                confirmPasswordUseCase: resolver.resolve(ConfirmPasswordUseCase.self)!,
-                validateEmailUseCase: resolver.resolve(ValidateEmailUseCase.self)!,
-                validateNameUseCase: resolver.resolve(ValidateNameUseCase.self)!,
                 signUpUseCase: resolver.resolve(SignUpUseCase.self)!
             )
         }

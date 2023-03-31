@@ -31,6 +31,9 @@
 		F52A9A0529B0C6A3004A3646 /* UpdateUserProfileUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A9A0429B0C6A3004A3646 /* UpdateUserProfileUseCase.swift */; };
 		F52A9A0829B0C8F1004A3646 /* UpdateUserProfileUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A9A0729B0C8F1004A3646 /* UpdateUserProfileUseCaseTests.swift */; };
 		F535077D29C3531F00E7ED7F /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F535077C29C3531F00E7ED7F /* SignUpViewModel.swift */; };
+		F540353129D75AF200A3A848 /* SignUpViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F540353029D75AF200A3A848 /* SignUpViewModelTests.swift */; };
+		F540353329D76B4B00A3A848 /* ValidatePasswordUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F540353229D76B4B00A3A848 /* ValidatePasswordUseCase.swift */; };
+		F540353529D779D100A3A848 /* ValidateNameUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F540353429D779D100A3A848 /* ValidateNameUseCase.swift */; };
 		F54BB20329D0638000283E13 /* LaunchDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54BB20229D0638000283E13 /* LaunchDataSourceProtocol.swift */; };
 		F54BB20529D063B700283E13 /* FirebaseLaunchDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54BB20429D063B700283E13 /* FirebaseLaunchDataSource.swift */; };
 		F54BB20729D0641400283E13 /* LaunchRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54BB20629D0641400283E13 /* LaunchRepositoryProtocol.swift */; };
@@ -46,16 +49,13 @@
 		F54BB23929D2D32400283E13 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54BB23829D2D32400283E13 /* SignInViewModel.swift */; };
 		F54BB23F29D2D4DB00283E13 /* ConfirmPasswordUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54BB23E29D2D4DB00283E13 /* ConfirmPasswordUseCase.swift */; };
 		F54BB24129D3106400283E13 /* ValidateEmailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54BB24029D3106400283E13 /* ValidateEmailUseCase.swift */; };
-		F54BB24429D3111D00283E13 /* ValidateNameUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54BB24329D3111D00283E13 /* ValidateNameUseCase.swift */; };
-		F54BB24A29D3130800283E13 /* InputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54BB24929D3130800283E13 /* InputTextField.swift */; };
 		F54BB24C29D3135300283E13 /* View+shake.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54BB24B29D3135300283E13 /* View+shake.swift */; };
 		F54BB24E29D3136D00283E13 /* Shake.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54BB24D29D3136D00283E13 /* Shake.swift */; };
-		F54BB25429D335BF00283E13 /* AnimatableFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54BB25329D335BF00283E13 /* AnimatableFont.swift */; };
 		F54BB26329D4988000283E13 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F54BB25929D4987F00283E13 /* Preview Assets.xcassets */; };
 		F54BB26429D4988000283E13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F54BB25A29D4987F00283E13 /* Assets.xcassets */; };
 		F54BB26529D4988000283E13 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F54BB25C29D4987F00283E13 /* GoogleService-Info.plist */; };
-		F54BB26629D4988000283E13 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54BB25D29D4987F00283E13 /* R.generated.swift */; };
 		F54BB26829D4988000283E13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F54BB26029D4987F00283E13 /* Localizable.strings */; };
+		F54BB26A29D4A1BC00283E13 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54BB26929D4A1BC00283E13 /* R.generated.swift */; };
 		F559AD23299FB37C00A87061 /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F559AD22299FB37C00A87061 /* AuthRepository.swift */; };
 		F559AD26299FB3C300A87061 /* AuthRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F559AD25299FB3C300A87061 /* AuthRepositoryProtocol.swift */; };
 		F559AD28299FBD1600A87061 /* FirebaseAuthDataSourceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F559AD27299FBD1600A87061 /* FirebaseAuthDataSourceMock.swift */; };
@@ -118,6 +118,9 @@
 		F52A9A0429B0C6A3004A3646 /* UpdateUserProfileUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserProfileUseCase.swift; sourceTree = "<group>"; };
 		F52A9A0729B0C8F1004A3646 /* UpdateUserProfileUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserProfileUseCaseTests.swift; sourceTree = "<group>"; };
 		F535077C29C3531F00E7ED7F /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		F540353029D75AF200A3A848 /* SignUpViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModelTests.swift; sourceTree = "<group>"; };
+		F540353229D76B4B00A3A848 /* ValidatePasswordUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatePasswordUseCase.swift; sourceTree = "<group>"; };
+		F540353429D779D100A3A848 /* ValidateNameUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateNameUseCase.swift; sourceTree = "<group>"; };
 		F54BB20229D0638000283E13 /* LaunchDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDataSourceProtocol.swift; sourceTree = "<group>"; };
 		F54BB20429D063B700283E13 /* FirebaseLaunchDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseLaunchDataSource.swift; sourceTree = "<group>"; };
 		F54BB20629D0641400283E13 /* LaunchRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchRepositoryProtocol.swift; sourceTree = "<group>"; };
@@ -133,18 +136,15 @@
 		F54BB23829D2D32400283E13 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		F54BB23E29D2D4DB00283E13 /* ConfirmPasswordUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPasswordUseCase.swift; sourceTree = "<group>"; };
 		F54BB24029D3106400283E13 /* ValidateEmailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateEmailUseCase.swift; sourceTree = "<group>"; };
-		F54BB24329D3111D00283E13 /* ValidateNameUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateNameUseCase.swift; sourceTree = "<group>"; };
-		F54BB24929D3130800283E13 /* InputTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextField.swift; sourceTree = "<group>"; };
 		F54BB24B29D3135300283E13 /* View+shake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+shake.swift"; sourceTree = "<group>"; };
 		F54BB24D29D3136D00283E13 /* Shake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shake.swift; sourceTree = "<group>"; };
-		F54BB25329D335BF00283E13 /* AnimatableFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableFont.swift; sourceTree = "<group>"; };
 		F54BB25929D4987F00283E13 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F54BB25A29D4987F00283E13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F54BB25C29D4987F00283E13 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		F54BB25D29D4987F00283E13 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		F54BB25E29D4987F00283E13 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F54BB26129D4987F00283E13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F54BB26229D4987F00283E13 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F54BB26929D4A1BC00283E13 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		F559AD22299FB37C00A87061 /* AuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
 		F559AD25299FB3C300A87061 /* AuthRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepositoryProtocol.swift; sourceTree = "<group>"; };
 		F559AD27299FBD1600A87061 /* FirebaseAuthDataSourceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthDataSourceMock.swift; sourceTree = "<group>"; };
@@ -242,8 +242,9 @@
 		F51E01632952389400D75D3D /* LeafTests */ = {
 			isa = PBXGroup;
 			children = (
+				F540352B29D75A8800A3A848 /* Features */,
 				F59C4AA6296C64340022A77E /* Helpers */,
-				F59C031D29919D1E0096CB55 /* Firebase */,
+				F56FE08A2992F6EE0025914D /* Mocks */,
 			);
 			path = LeafTests;
 			sourceTree = "<group>";
@@ -257,28 +258,6 @@
 			path = DataSource;
 			sourceTree = "<group>";
 		};
-		F52A99EE29B0B978004A3646 /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-				F52A99E929B0B385004A3646 /* UserProfileRepositoryTests.swift */,
-				F559AD2A299FC23500A87061 /* AuthRepositoryTests.swift */,
-			);
-			path = Repository;
-			sourceTree = "<group>";
-		};
-		F52A99F129B0BB75004A3646 /* UseCase */ = {
-			isa = PBXGroup;
-			children = (
-				F52A99F229B0BB8A004A3646 /* SignUpUseCaseTests.swift */,
-				F52A99F629B0BDF5004A3646 /* SignInUseCaseTests.swift */,
-				F52A99FA29B0C09C004A3646 /* SignOutUseCaseTests.swift */,
-				F52A99FE29B0C2C8004A3646 /* GetCurrentUserUseCaseTests.swift */,
-				F52A9A0229B0C454004A3646 /* GetUserProfileUseCaseTests.swift */,
-				F52A9A0729B0C8F1004A3646 /* UpdateUserProfileUseCaseTests.swift */,
-			);
-			path = UseCase;
-			sourceTree = "<group>";
-		};
 		F52A9A1429B21A51004A3646 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -288,6 +267,54 @@
 				F5DCDB3329C1F91E0030BB9A /* Main */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		F540352B29D75A8800A3A848 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				F540352C29D75A8F00A3A848 /* Auth */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		F540352C29D75A8F00A3A848 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				F540352F29D75AC500A3A848 /* Repository */,
+				F540352E29D75A9D00A3A848 /* UseCase */,
+				F540352D29D75A9500A3A848 /* ViewModel */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		F540352D29D75A9500A3A848 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F540353029D75AF200A3A848 /* SignUpViewModelTests.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F540352E29D75A9D00A3A848 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				F52A9A0729B0C8F1004A3646 /* UpdateUserProfileUseCaseTests.swift */,
+				F52A9A0229B0C454004A3646 /* GetUserProfileUseCaseTests.swift */,
+				F52A99FE29B0C2C8004A3646 /* GetCurrentUserUseCaseTests.swift */,
+				F52A99FA29B0C09C004A3646 /* SignOutUseCaseTests.swift */,
+				F52A99F629B0BDF5004A3646 /* SignInUseCaseTests.swift */,
+				F52A99F229B0BB8A004A3646 /* SignUpUseCaseTests.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		F540352F29D75AC500A3A848 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				F559AD2A299FC23500A87061 /* AuthRepositoryTests.swift */,
+				F52A99E929B0B385004A3646 /* UserProfileRepositoryTests.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		F54BB1D129D05A4000283E13 /* Helpers */ = {
@@ -620,7 +647,8 @@
 			children = (
 				F54BB23E29D2D4DB00283E13 /* ConfirmPasswordUseCase.swift */,
 				F54BB24029D3106400283E13 /* ValidateEmailUseCase.swift */,
-				F54BB24329D3111D00283E13 /* ValidateNameUseCase.swift */,
+				F540353229D76B4B00A3A848 /* ValidatePasswordUseCase.swift */,
+				F540353429D779D100A3A848 /* ValidateNameUseCase.swift */,
 			);
 			path = Validators;
 			sourceTree = "<group>";
@@ -637,8 +665,6 @@
 		F54BB24629D312E700283E13 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F54BB25229D335A800283E13 /* Font */,
-				F54BB24829D312F800283E13 /* TextField */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -651,14 +677,6 @@
 			path = Animation;
 			sourceTree = "<group>";
 		};
-		F54BB24829D312F800283E13 /* TextField */ = {
-			isa = PBXGroup;
-			children = (
-				F54BB24929D3130800283E13 /* InputTextField.swift */,
-			);
-			path = TextField;
-			sourceTree = "<group>";
-		};
 		F54BB24F29D3358000283E13 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -667,23 +685,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		F54BB25229D335A800283E13 /* Font */ = {
-			isa = PBXGroup;
-			children = (
-				F54BB25329D335BF00283E13 /* AnimatableFont.swift */,
-			);
-			path = Font;
-			sourceTree = "<group>";
-		};
 		F54BB25729D4987F00283E13 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				F54BB25829D4987F00283E13 /* PreviewContent */,
-				F54BB25A29D4987F00283E13 /* Assets.xcassets */,
-				F54BB25B29D4987F00283E13 /* Firebase */,
-				F54BB25D29D4987F00283E13 /* R.generated.swift */,
 				F54BB25E29D4987F00283E13 /* Info.plist */,
+				F54BB25A29D4987F00283E13 /* Assets.xcassets */,
+				F54BB26929D4A1BC00283E13 /* R.generated.swift */,
+				F54BB25B29D4987F00283E13 /* Firebase */,
 				F54BB25F29D4987F00283E13 /* Localization */,
+				F54BB25829D4987F00283E13 /* PreviewContent */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -712,15 +722,6 @@
 			path = Localization;
 			sourceTree = "<group>";
 		};
-		F559AD29299FC22600A87061 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				F52A99F129B0BB75004A3646 /* UseCase */,
-				F52A99EE29B0B978004A3646 /* Repository */,
-			);
-			path = Tests;
-			sourceTree = "<group>";
-		};
 		F56C47652954695000BD11D4 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -736,15 +737,6 @@
 				F52A99ED29B0B96C004A3646 /* DataSource */,
 			);
 			path = Mocks;
-			sourceTree = "<group>";
-		};
-		F59C031D29919D1E0096CB55 /* Firebase */ = {
-			isa = PBXGroup;
-			children = (
-				F559AD29299FC22600A87061 /* Tests */,
-				F56FE08A2992F6EE0025914D /* Mocks */,
-			);
-			path = Firebase;
 			sourceTree = "<group>";
 		};
 		F59C034D2991B25D0096CB55 /* Extensions */ = {
@@ -980,7 +972,6 @@
 				F54BB20929D0643F00283E13 /* LaunchRepository.swift in Sources */,
 				F54BB23929D2D32400283E13 /* SignInViewModel.swift in Sources */,
 				F54BB20E29D0651500283E13 /* AuthState.swift in Sources */,
-				F54BB24A29D3130800283E13 /* InputTextField.swift in Sources */,
 				F52A99F529B0BDC2004A3646 /* SignInUseCase.swift in Sources */,
 				F54BB23F29D2D4DB00283E13 /* ConfirmPasswordUseCase.swift in Sources */,
 				F52A9A0529B0C6A3004A3646 /* UpdateUserProfileUseCase.swift in Sources */,
@@ -992,13 +983,15 @@
 				F52A9A0129B0C3BC004A3646 /* GetUserProfileUseCase.swift in Sources */,
 				F59C032E29919E890096CB55 /* FirebaseAuthDataSource.swift in Sources */,
 				F59C032C29919E010096CB55 /* AuthDataSourceProtocol.swift in Sources */,
+				F540353329D76B4B00A3A848 /* ValidatePasswordUseCase.swift in Sources */,
 				F5DCDB3229C1F7190030BB9A /* RootCoordinator.swift in Sources */,
-				F54BB26629D4988000283E13 /* R.generated.swift in Sources */,
+				F54BB26A29D4A1BC00283E13 /* R.generated.swift in Sources */,
 				F54BB23629D2D31400283E13 /* SignInScreen.swift in Sources */,
 				F54BB24C29D3135300283E13 /* View+shake.swift in Sources */,
 				F5DCDB3B29C204450030BB9A /* LaunchScreen.swift in Sources */,
 				F5DCDB2929C1F3180030BB9A /* SceneDelegate.swift in Sources */,
 				F54BB24E29D3136D00283E13 /* Shake.swift in Sources */,
+				F540353529D779D100A3A848 /* ValidateNameUseCase.swift in Sources */,
 				F52A99F929B0C060004A3646 /* SignOutUseCase.swift in Sources */,
 				F5DCDB3829C2005A0030BB9A /* SignUpScreen.swift in Sources */,
 				F54BB20B29D0648D00283E13 /* GetAuthStateUseCase.swift in Sources */,
@@ -1009,8 +1002,6 @@
 				F54BB21D29D0777100283E13 /* UserProfileError.swift in Sources */,
 				F52A99F029B0BA54004A3646 /* SignUpUseCase.swift in Sources */,
 				F54BB20729D0641400283E13 /* LaunchRepositoryProtocol.swift in Sources */,
-				F54BB25429D335BF00283E13 /* AnimatableFont.swift in Sources */,
-				F54BB24429D3111D00283E13 /* ValidateNameUseCase.swift in Sources */,
 				F54BB22829D1890500283E13 /* AuthError.swift in Sources */,
 				F52A99DA29B0AD8A004A3646 /* UserProfile.swift in Sources */,
 				F535077D29C3531F00E7ED7F /* SignUpViewModel.swift in Sources */,
@@ -1027,6 +1018,7 @@
 				F559AD28299FBD1600A87061 /* FirebaseAuthDataSourceMock.swift in Sources */,
 				F52A99F329B0BB8A004A3646 /* SignUpUseCaseTests.swift in Sources */,
 				F52A99FF29B0C2C8004A3646 /* GetCurrentUserUseCaseTests.swift in Sources */,
+				F540353129D75AF200A3A848 /* SignUpViewModelTests.swift in Sources */,
 				F52A99FB29B0C09C004A3646 /* SignOutUseCaseTests.swift in Sources */,
 				F52A99F729B0BDF5004A3646 /* SignInUseCaseTests.swift in Sources */,
 				F559AD2B299FC23500A87061 /* AuthRepositoryTests.swift in Sources */,

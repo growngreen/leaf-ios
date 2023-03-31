@@ -19,8 +19,8 @@ final class AuthRepository: AuthRepositoryProtocol {
         self.dataSource = dataSource
     }
 
-    func signUp(email: String, password: String) async throws {
-        try await dataSource.signUp(email: email, password: password)
+    func signUp(name: String, email: String, password: String) async throws {
+        try await dataSource.signUp(name: name, email: email, password: password)
     }
 
     func signIn(email: String, password: String) async throws {
@@ -40,6 +40,7 @@ private extension AuthRepository {
 
         return User(
             id: dto.id,
+            name: dto.name,
             email: dto.email
         )
     }

@@ -16,11 +16,12 @@ final class AuthRepositoryTests: XCTestCase {
         let sut = makeSUT()
 
         // when
-        try! await sut.signUp(email: "test@test.com", password: "test123")
+        try! await sut.signUp(name: "test", email: "test@test.com", password: "test123")
         let user = sut.currentUser
 
         // then
         XCTAssertEqual(user?.email, "test@test.com")
+        XCTAssertEqual(user?.name, "test")
     }
 
     func test_signUp_withExistingEmail_shouldThrowError() async {
@@ -29,7 +30,7 @@ final class AuthRepositoryTests: XCTestCase {
 
         // when
         // then
-        await XCTAssertThrowsErrorAsync(try await sut.signUp(email: user1.email, password: password1))
+        await XCTAssertThrowsErrorAsync(try await sut.signUp(name: "test", email: user1.email, password: password1))
     }
 
     func test_signOut_withLoggedInUser_shouldlogOutCurrentuser() async {
@@ -37,7 +38,7 @@ final class AuthRepositoryTests: XCTestCase {
         let sut = makeSUT()
 
         // when
-        try! await sut.signUp(email: "test@test.com", password: "test123")
+        try! await sut.signUp(name: "test", email: "test@test.com", password: "test123")
         try! await sut.signOut()
 
         // then
@@ -100,6 +101,7 @@ final class AuthRepositoryTests: XCTestCase {
     var user1: UserDTO {
         UserDTO(
             id: "0",
+            name: "0",
             email: "user1@test.com"
         )
     }
@@ -111,6 +113,7 @@ final class AuthRepositoryTests: XCTestCase {
     var user2: UserDTO {
         UserDTO(
             id: "1",
+            name: "1",
             email: "user2@test.com"
         )
     }

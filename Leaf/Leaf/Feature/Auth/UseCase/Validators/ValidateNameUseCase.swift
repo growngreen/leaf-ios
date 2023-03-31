@@ -2,14 +2,14 @@
 //  ValidateNameUseCase.swift
 //  Leaf
 //
-//  Created by Tsvetan Tsvetanov on 28.03.23.
+//  Created by Tsvetan Tsvetanov on 31.03.23.
 //
 
 import Foundation
 
 struct ValidateNameUseCase {
 
-    func execute(_ name: String) -> Bool {
-        !name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    func execute(_ name: String) throws {
+        guard !name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { throw AuthError.invalidEmail }
     }
 }

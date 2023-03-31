@@ -32,8 +32,6 @@ class RootCoordinator: CoordinatorProtocol {
         navigationController.setViewControllers([hostingController], animated: true)
     }
 
-    // MARK: - Navigation Actions
-
     func coordinatorDidAuthenticate(_ coordinator: AuthCoordinator) {
         childDidFinish(coordinator)
         showMain()
@@ -45,9 +43,8 @@ class RootCoordinator: CoordinatorProtocol {
     }
 }
 
-// MARK: - LaunchCoordinating
-
 extension RootCoordinator: LaunchCoordinating {
+
     func handleAuthState(_ authState: AuthState) {
         switch authState {
         case .authenticated:
@@ -57,8 +54,6 @@ extension RootCoordinator: LaunchCoordinating {
         }
     }
 }
-
-// MARK: - Helpers
 
 private extension RootCoordinator {
 

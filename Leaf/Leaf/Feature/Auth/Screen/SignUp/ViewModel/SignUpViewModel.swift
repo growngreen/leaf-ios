@@ -6,167 +6,92 @@
 //
 
 import Foundation
+import Combine
 
 class SignUpViewModel: ObservableObject {
 
-    enum Field {
-        case fullName
+    enum SignUpField {
+        case name
         case email
         case password
         case confirmPassword
     }
 
-    // MARK: - Properties
+    @Published private(set) var isSubmitButtonDisabled: Bool = true
+    @Published private(set) var focusedField: SignUpField?
 
-    @Published private(set) var invalidField: Field?
-    @Published private(set) var focusedField: Field? = .fullName
+    @Published var name: String = ""
+    @Published var email: String = ""
+    @Published var password: String = ""
+    @Published var confirmPassword: String = ""
 
     private weak var authCoordinating: AuthCoordinating?
 
-    private let confirmPasswordUseCase: ConfirmPasswordUseCase
-    private let validateEmailUseCase: ValidateEmailUseCase
-    private let validateNameUseCase: ValidateNameUseCase
     private let signUpUseCase: SignUpUseCase
 
     private var signUpTask: Task<Void, Never>?
+    private var cancellables = Set<AnyCancellable>()
 
-    var title: String {
-        "Sign up"
+    private var isValid: Bool {
+        !name.isEmpty && !email.isEmpty && !password.isEmpty && !confirmPassword.isEmpty
     }
-
-    var fullNameTextFieldTitle: String {
-        "Full Name"
-    }
-
-    var fullNameTextFieldErrorMessage: String {
-        "Invalid name"
-    }
-
-    var emailTextFieldTitle: String {
-        "E-mail"
-    }
-
-    var emailTextFieldErrorMessage: String {
-        "Invalid e-mail"
-    }
-
-    var passwordTextFieldTitle: String {
-        "Password"
-    }
-
-    var passwordTextFieldErrorMessage: String {
-        "Invalid password"
-    }
-
-    var confirmPasswordTextFieldTitle: String {
-        "Confirm Password"
-    }
-
-    var confirmPasswordFieldErrorMessage: String {
-        "Invalid password"
-    }
-
-    var createAccountButtonTitle: String {
-        "Create account"
-    }
-
-    var footerText: String {
-        "Already got an account?"
-    }
-
-    var signInFooterText: String {
-        "Sign in"
-    }
-
-    // MARK: - init
 
     init(
         authCoordinating: AuthCoordinating,
-        confirmPasswordUseCase: ConfirmPasswordUseCase,
-        validateEmailUseCase: ValidateEmailUseCase,
-        validateNameUseCase: ValidateNameUseCase,
         signUpUseCase: SignUpUseCase
     ) {
         self.authCoordinating = authCoordinating
-        self.validateEmailUseCase = validateEmailUseCase
-        self.validateNameUseCase = validateNameUseCase
-        self.confirmPasswordUseCase = confirmPasswordUseCase
         self.signUpUseCase = signUpUseCase
+
+        bind()
     }
 
-    // MARK: - Public
+    func signUp() {
+        signUpTask?.cancel()
+        signUpTask = Task(operation: { [weak self] in
+            guard let self = self else { return }
 
-    func validate(
-        fullName: String,
-        email: String,
-        password: String,
-        passwordConfirmation: String
-    ) {
-        guard validateName(fullName) else {
-            invalidField = .fullName
-            return
-        }
+            do {
+                try await self.signUpUseCase.execute(name: name, email: email, password: password, confirmPassword: confirmPassword)
 
-        guard validateEmail(email) else {
-            invalidField = .email
-            return
-        }
-
-        guard validatePssword(password, passwordConfirmation: passwordConfirmation) else {
-            invalidField = .password
-            return
-        }
-
-        signUp(with: email, password: password)
+                await MainActor.run(body: {
+                    self.authCoordinating?.didAuthenticate()
+                })
+            } catch {
+                print(error.localizedDescription)
+            }
+        })
     }
 
     func didTapSignIn() {
         authCoordinating?.didRequestSignIn()
     }
 
-    func onSubmit(on field: Field) {
+    func submit(_ field: SignUpField) {
         switch field {
-        case .fullName:
+        case .name:
             focusedField = .email
         case .email:
             focusedField = .password
         case .password:
             focusedField = .confirmPassword
         case .confirmPassword:
-            focusedField = nil
+            guard isValid else {
+                focusedField = nil
+                return
+            }
+            signUp()
         }
     }
-}
 
-// MARK: - Private
+    private func bind() {
+        Publishers.CombineLatest4($name, $email, $password, $confirmPassword)
+            .debounce(for: .seconds(0.3), scheduler: RunLoop.main)
+            .sink { [weak self] name, email, password, confirmPassword in
+                guard let self else { return }
 
-private extension SignUpViewModel {
-
-    func validateName(_ fullName: String) -> Bool {
-        validateNameUseCase.execute(fullName)
-    }
-
-    func validateEmail(_ email: String) -> Bool {
-        validateEmailUseCase.execute(email)
-    }
-
-    func validatePssword(_ password: String, passwordConfirmation: String) -> Bool {
-        confirmPasswordUseCase.execute(password: password, passwordConfirmation: passwordConfirmation)
-    }
-
-    func signUp(with email: String, password: String) {
-        signUpTask?.cancel()
-        signUpTask = Task(operation: {
-            do {
-                try await signUpUseCase.execute(email: email, password: password)
-                authCoordinating?.didAuthenticate()
-            } catch {
-                handle(error)
+                self.isSubmitButtonDisabled = !self.isValid
             }
-        })
-    }
-
-    func handle(_ error: Error) {
-        print("\(error.localizedDescription)")
+            .store(in: &cancellables)
     }
 }
