@@ -25,7 +25,7 @@ class SignUpViewModel: BaseViewModel {
     @Published var password: String = ""
     @Published var confirmPassword: String = ""
 
-    private weak var authCoordinating: AuthCoordinating?
+    private weak var authCoordinating: SignUpCoordinating?
 
     private let signUpUseCase: SignUpUseCase
 
@@ -37,7 +37,7 @@ class SignUpViewModel: BaseViewModel {
     }
 
     init(
-        authCoordinating: AuthCoordinating,
+        authCoordinating: SignUpCoordinating?,
         errorHandler: any ErrorHandlerProtocol,
         signUpUseCase: SignUpUseCase
     ) {
@@ -58,7 +58,7 @@ class SignUpViewModel: BaseViewModel {
                 try await self.signUpUseCase.execute(name: name, email: email, password: password, confirmPassword: confirmPassword)
 
                 await MainActor.run(body: {
-                    self.authCoordinating?.didAuthenticate()
+                    self.authCoordinating?.didSignUp()
                 })
             } catch {
                 self.handle(error)

@@ -29,4 +29,12 @@
 "create_account_button_title" = "Create account";
 "sign_up_footer_text" = "Already got an account?";
 "sign_up_sign_in_footer_text" = "Sign in";
-"sign_up_section_footer_text" = "Please fill up the form in order to create an account";
+"sign_up_section_footer_text" = "Please fill up the form in order to create an account.";
+
+// MARK: - Sign In
+
+"sign_in_title" = "Sign In";
+"sign_in_footer_text" = "Don't have an account?";
+"sign_in_sign_in_footer_text" = "Sign up";
+"sign_in_button_title" = "Sign in";
+"sign_in_section_footer_text" = "Please enter a pair of email and password.";
