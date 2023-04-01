@@ -105,6 +105,7 @@ private extension SignUpScreen {
         Button(R.string.localizable.create_account_button_title()) {
             viewModel.signUp()
         }
+        .frame(maxWidth: .infinity, alignment: .center)
     }
 
     var footerText: some View {
