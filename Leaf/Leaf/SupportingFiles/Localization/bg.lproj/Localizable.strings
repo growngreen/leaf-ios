@@ -6,22 +6,27 @@
   
 */
 
+// MARK: - General
+
+"general_done_button_title" = "Готово";
+
+// MARK: - Error
+
+"general_error_title" = "Нещо се обърка.";
+"general_error_title_description" = "Нещо се обърка. Моля опитайте отново.";
+"auth_error_invalid_email" = "Моля въведете валиден имейл.";
+"auth_error_invalid_password" = "Моля въведете валидна парола (по-дълга от 6 символа).";
+"auth_error_invalid_name" = "Моля въведете валидно име.";
+"auth_error_mismatch_password" = "Моля въведете съвпадаща пърола.";
+
 // MARK: - Sign Up
 
 "sign_up_title" = "Регистрация";
 "name_text_field_title" = "Име";
-"name_text_field_error_message" = "Невалидно име";
 "email_text_field_title" = "Имейл";
-"email_text_field_error_message" = "Невалиден имейл";
 "password_text_field_title" = "Парола";
-"password_text_field_error_message" = "Невалидна парола";
 "confirm_password_text_field_title" = "Потвърди парола";
-"confirm_password_text_field_error_message" = "Невалидна парола";
 "create_account_button_title" = "Създай акаунт";
 "sign_up_footer_text" = "Вече имате акаунт?";
 "sign_up_sign_in_footer_text" = "Вход";
 "sign_up_section_footer_text" = "Моля попълнете формата, за да създадете вашия акаунт";
-
-// MARK: - General
-
-"general_done_button_title" = "Готово";

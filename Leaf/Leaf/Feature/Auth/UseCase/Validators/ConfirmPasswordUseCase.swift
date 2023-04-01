@@ -20,7 +20,7 @@ struct ConfirmPasswordUseCase {
         try validatePasswordUseCase.execute(passwordConfirmation)
 
         guard password == passwordConfirmation else {
-            throw AuthError.invalidPassword
+            throw AuthError.mismatchedPassword
         }
     }
 }

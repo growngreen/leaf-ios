@@ -6,22 +6,27 @@
   
 */
 
+// MARK: - General
+
+"general_done_button_title" = "Done";
+
+// MARK: - Error
+
+"general_error_title" = "Something went wrong.";
+"general_error_title_description" = "Something went wrong. Please try again later.";
+"auth_error_invalid_email" = "Please enter a valid email.";
+"auth_error_invalid_password" = "Please enter a valid password (longer than 6 symbols).";
+"auth_error_invalid_name" = "Please enter a valid name.";
+"auth_error_mismatch_password" = "Please enter a matching password.";
+
 // MARK: - Sign Up
 
 "sign_up_title" = "Sign Up";
 "name_text_field_title" = "Name";
-"name_text_field_error_message" = "Invalid name";
 "email_text_field_title" = "E-mail";
-"email_text_field_error_message" = "Invalid e-mail";
 "password_text_field_title" = "Password";
-"password_text_field_error_message" = "Invalid password";
 "confirm_password_text_field_title" = "Confirm Password";
-"confirm_password_text_field_error_message" = "Invalid password";
 "create_account_button_title" = "Create account";
 "sign_up_footer_text" = "Already got an account?";
 "sign_up_sign_in_footer_text" = "Sign in";
 "sign_up_section_footer_text" = "Please fill up the form in order to create an account";
-
-// MARK: - General
-
-"general_done_button_title" = "Done";

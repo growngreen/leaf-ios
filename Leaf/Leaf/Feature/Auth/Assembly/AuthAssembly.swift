@@ -73,9 +73,15 @@ final class AuthAssembly: Assembly {
         }
         .inObjectScope(.transient)
 
+        container.register((any ErrorHandlerProtocol).self) { resolver in
+            ErrorHandler<AuthError>()
+        }
+        .inObjectScope(.container)
+
         container.register(SignUpViewModel.self) { (resolver: Resolver, authCoordinating: AuthCoordinating) in
             SignUpViewModel(
                 authCoordinating: authCoordinating,
+                errorHandler: resolver.resolve((any ErrorHandlerProtocol).self)!,
                 signUpUseCase: resolver.resolve(SignUpUseCase.self)!
             )
         }

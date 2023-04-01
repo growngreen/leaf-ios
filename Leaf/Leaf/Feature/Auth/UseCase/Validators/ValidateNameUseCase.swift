@@ -10,6 +10,6 @@ import Foundation
 struct ValidateNameUseCase {
 
     func execute(_ name: String) throws {
-        guard !name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { throw AuthError.invalidEmail }
+        guard !name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { throw AuthError.invalidName }
     }
 }
