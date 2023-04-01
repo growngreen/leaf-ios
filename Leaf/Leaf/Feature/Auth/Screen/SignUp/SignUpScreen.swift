@@ -17,20 +17,25 @@ struct SignUpScreen: View {
     }
 
     var body: some View {
-        Form {
-            Section {
-                nameTextField
-                emailTextField
-                passwordTextField
-                confirmPasswordTextField
-            } footer: {
-                sectionFooterText
+        VStack {
+            Form {
+                Section {
+                    nameTextField
+                    emailTextField
+                    passwordTextField
+                    confirmPasswordTextField
+                } footer: {
+                    sectionFooterText
+                }
+
+                Section {
+                    submitButton
+                }
+                .disabled(viewModel.isSubmitButtonDisabled)
             }
 
-            Section {
-                submitButton
-            }
-            .disabled(viewModel.isSubmitButtonDisabled)
+            footerText
+                .padding()
         }
         .autocorrectionDisabled()
         .textInputAutocapitalization(.never)
