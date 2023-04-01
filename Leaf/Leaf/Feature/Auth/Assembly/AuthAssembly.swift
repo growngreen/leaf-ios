@@ -39,7 +39,12 @@ final class AuthAssembly: Assembly {
         .inObjectScope(.transient)
 
         container.register(SignUpUseCase.self) { resolver in
-            SignUpUseCase(authRepository: resolver.resolve(AuthRepositoryProtocol.self)!)
+            SignUpUseCase(
+                authRepository: resolver.resolve(AuthRepositoryProtocol.self)!,
+                validateNameUseCase: resolver.resolve(ValidateNameUseCase.self)!,
+                validateEmailUseCase: resolver.resolve(ValidateEmailUseCase.self)!,
+                confirmPasswordUseCase: resolver.resolve(ConfirmPasswordUseCase.self)!
+            )
         }
         .inObjectScope(.transient)
 
@@ -48,8 +53,37 @@ final class AuthAssembly: Assembly {
         }
         .inObjectScope(.transient)
 
-        container.register(AuthViewModel.self) { (resolver: Resolver, authCoordinating: AuthCoordinating) in
-            AuthViewModel(authCoordinating: authCoordinating)
+        container.register(ConfirmPasswordUseCase.self) { resolver in
+            ConfirmPasswordUseCase(validatePasswordUseCase: resolver.resolve(ValidatePasswordUseCase.self)!)
+        }
+        .inObjectScope(.transient)
+
+        container.register(ValidateEmailUseCase.self) { resolver in
+            ValidateEmailUseCase()
+        }
+        .inObjectScope(.transient)
+
+        container.register(ValidatePasswordUseCase.self) { resolver in
+            ValidatePasswordUseCase()
+        }
+        .inObjectScope(.transient)
+
+        container.register(ValidateNameUseCase.self) { resolver in
+            ValidateNameUseCase()
+        }
+        .inObjectScope(.transient)
+
+        container.register((any ErrorHandlerProtocol).self) { resolver in
+            ErrorHandler<AuthError>()
+        }
+        .inObjectScope(.container)
+
+        container.register(SignUpViewModel.self) { (resolver: Resolver, authCoordinating: AuthCoordinating) in
+            SignUpViewModel(
+                authCoordinating: authCoordinating,
+                errorHandler: resolver.resolve((any ErrorHandlerProtocol).self)!,
+                signUpUseCase: resolver.resolve(SignUpUseCase.self)!
+            )
         }
         .inObjectScope(.transient)
     }

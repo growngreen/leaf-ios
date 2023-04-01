@@ -25,9 +25,9 @@ struct LaunchScreen: View {
         }
         .opacity(animate ? 0 : 1)
         .ignoresSafeArea(.all)
-        .onAppear {
+        .onReceive(viewModel.$showAnimation) { showAnimation in
             withAnimation(.easeOut(duration: 0.5)) {
-                animate = true
+                animate = showAnimation
             }
         }
         .task {

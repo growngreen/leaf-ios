@@ -9,6 +9,8 @@ import Foundation
 
 class LaunchViewModel: ObservableObject {
 
+    @Published private(set) var showAnimation = false
+
     private let getAuthStateUseCase: GetAuthStateUseCase
     private weak var launchCoordinating: LaunchCoordinating?
 
@@ -25,8 +27,14 @@ class LaunchViewModel: ObservableObject {
 
         let authState = await getAuthStateUseCase.execute()
 
-        await MainActor.run {
-            launchCoordinating?.handleAuthState(authState)
+        await MainActor.run { [weak self] in
+            self?.showAnimation = true
+        }
+
+        try? await Task.sleep(for: .seconds(0.4))
+
+        await MainActor.run { [weak self] in
+            self?.launchCoordinating?.handleAuthState(authState)
         }
     }
 }

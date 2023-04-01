@@ -9,7 +9,7 @@ import Foundation
 
 protocol AuthRepositoryProtocol {
     var currentUser: User? { get }
-    func signUp(email: String, password: String) async throws
+    func signUp(name: String, email: String, password: String) async throws
     func signIn(email: String, password: String) async throws
     func signOut() async throws
 }

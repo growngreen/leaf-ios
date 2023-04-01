@@ -1,5 +1,5 @@
 //
-//  SignUpUseCaseTests.swift
+//  SignInUseCaseTests.swift
 //  LeafTests
 //
 //  Created by Tsvetan Tsvetanov on 2.03.23.
@@ -9,9 +9,9 @@ import Foundation
 import XCTest
 @testable import Leaf
 
-final class SignUpUseCaseTests: XCTestCase {
+final class SignInUseCaseTests: XCTestCase {
 
-    func test_signUp_withInvalidEmail_shouldThrowError() async {
+    func test_signIn_withInvalidEmail_shouldThrowError() async {
         // given
         let sut = makeSUT()
 
@@ -20,7 +20,7 @@ final class SignUpUseCaseTests: XCTestCase {
         await XCTAssertThrowsErrorAsync(try await sut.execute(email: "t", password: "validPassword.123"))
     }
 
-    func test_signUp_withInvalidPassword_shouldThrowError() async {
+    func test_signIn_withInvalidPassword_shouldThrowError() async {
         // given
         let sut = makeSUT()
 
@@ -29,28 +29,28 @@ final class SignUpUseCaseTests: XCTestCase {
         await XCTAssertThrowsErrorAsync(try await sut.execute(email: "test@gmail.com", password: "1"))
     }
 
-    func test_signUp_withValidCredentialsAndExistingEmail_shouldThrowError() async {
+    func test_signIn_withValidCredentials_shouldSignIn() async {
         // given
         let sut = makeSUT(users: users)
 
         // when
         // then
-        await XCTAssertThrowsErrorAsync(try await sut.execute(email: "user1@test.com", password: "validPassword.123"))
+        await XCTAssertNoThrowsAsync(try await sut.execute(email: "user1@test.com", password: "validPassword.123"))
     }
 
-    func test_signUp_withValidCredentials_shouldSignUp() async {
+    func test_signIn_withValidCredentialsAndWrongPassword_shouldThrowError() async {
         // given
-        let sut = makeSUT()
+        let sut = makeSUT(users: users)
 
         // when
         // then
-        await XCTAssertNoThrowsAsync(try await sut.execute(email: "test@gmail.com", password: "validPassword.123"))
+        await XCTAssertThrowsErrorAsync(try await sut.execute(email: "user1@test.com", password: "wrongPassword.123"))
     }
 
     // MARK: - Helpers
 
-    func makeSUT(users: [String: (user: UserDTO, password: String)] = [:]) -> SignUpUseCase {
-        SignUpUseCase(
+    func makeSUT(users: [String: (user: UserDTO, password: String)] = [:]) -> SignInUseCase {
+        SignInUseCase(
             authRepository: AuthRepository(
                 dataSource: FirebaseAuthDataSourceMock(
                     users: users
@@ -69,6 +69,7 @@ final class SignUpUseCaseTests: XCTestCase {
     var user1: UserDTO {
         UserDTO(
             id: "0",
+            name: "0",
             email: "user1@test.com"
         )
     }
@@ -80,6 +81,7 @@ final class SignUpUseCaseTests: XCTestCase {
     var user2: UserDTO {
         UserDTO(
             id: "1",
+            name: "1",
             email: "user2@test.com"
         )
     }

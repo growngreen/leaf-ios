@@ -63,6 +63,7 @@ final class GetCurrentUserUseCaseTests: XCTestCase {
     var user1: UserDTO {
         UserDTO(
             id: "0",
+            name: "0",
             email: "user1@test.com"
         )
     }
@@ -74,6 +75,7 @@ final class GetCurrentUserUseCaseTests: XCTestCase {
     var user2: UserDTO {
         UserDTO(
             id: "1",
+            name: "1",
             email: "user2@test.com"
         )
     }

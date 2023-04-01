@@ -16,9 +16,6 @@ struct SignInUseCase {
     }
 
     func execute(email: String, password: String) async throws {
-        guard email.isValidEmail else { throw AuthError.invalidEmail }
-        guard password.isValidPassword else { throw AuthError.invalidPassword }
-
         try await authRepository.signIn(email: email, password: password)
     }
 }

@@ -29,13 +29,14 @@ final class FirebaseAuthDataSourceMock: AuthDataSourceProtocol {
         self.users = users
     }
 
-    func signUp(email: String, password: String) async throws {
+    func signUp(name: String, email: String, password: String) async throws {
         guard !users.contains(where: { (key, value) in
             key == email
         }) else { throw AuthError.noUser }
 
         let user = UserDTO(
             id: UUID().uuidString,
+            name: name,
             email: email
         )
 
