@@ -172,6 +172,7 @@ final class SignUpViewModelTests: XCTestCase {
     func makeSUT(users: [String : (user: UserDTO, password: String)] = [:]) -> SignUpViewModel {
         SignUpViewModel(
             authCoordinating: self,
+            errorHandler: ErrorHandler<AuthError>(),
             signUpUseCase: SignUpUseCase(
                 authRepository: AuthRepository(
                     dataSource: FirebaseAuthDataSourceMock()

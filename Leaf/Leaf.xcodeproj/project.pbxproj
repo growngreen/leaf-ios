@@ -53,7 +53,6 @@
 		F54BB23F29D2D4DB00283E13 /* ConfirmPasswordUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54BB23E29D2D4DB00283E13 /* ConfirmPasswordUseCase.swift */; };
 		F54BB24129D3106400283E13 /* ValidateEmailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54BB24029D3106400283E13 /* ValidateEmailUseCase.swift */; };
 		F54BB24C29D3135300283E13 /* View+shake.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54BB24B29D3135300283E13 /* View+shake.swift */; };
-		F54BB24E29D3136D00283E13 /* Shake.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54BB24D29D3136D00283E13 /* Shake.swift */; };
 		F54BB26329D4988000283E13 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F54BB25929D4987F00283E13 /* Preview Assets.xcassets */; };
 		F54BB26429D4988000283E13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F54BB25A29D4987F00283E13 /* Assets.xcassets */; };
 		F54BB26529D4988000283E13 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F54BB25C29D4987F00283E13 /* GoogleService-Info.plist */; };
@@ -143,7 +142,6 @@
 		F54BB23E29D2D4DB00283E13 /* ConfirmPasswordUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPasswordUseCase.swift; sourceTree = "<group>"; };
 		F54BB24029D3106400283E13 /* ValidateEmailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateEmailUseCase.swift; sourceTree = "<group>"; };
 		F54BB24B29D3135300283E13 /* View+shake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+shake.swift"; sourceTree = "<group>"; };
-		F54BB24D29D3136D00283E13 /* Shake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shake.swift; sourceTree = "<group>"; };
 		F54BB25929D4987F00283E13 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F54BB25A29D4987F00283E13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F54BB25C29D4987F00283E13 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -696,7 +694,6 @@
 		F54BB24529D312DB00283E13 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				F54BB24729D312EF00283E13 /* Animation */,
 				F54BB24629D312E700283E13 /* View */,
 			);
 			path = Presentation;
@@ -707,14 +704,6 @@
 			children = (
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		F54BB24729D312EF00283E13 /* Animation */ = {
-			isa = PBXGroup;
-			children = (
-				F54BB24D29D3136D00283E13 /* Shake.swift */,
-			);
-			path = Animation;
 			sourceTree = "<group>";
 		};
 		F54BB24F29D3358000283E13 /* View */ = {
@@ -1033,7 +1022,6 @@
 				F5DCDB3B29C204450030BB9A /* LaunchScreen.swift in Sources */,
 				F540353829D7FC7000A3A848 /* BaseViewModel.swift in Sources */,
 				F5DCDB2929C1F3180030BB9A /* SceneDelegate.swift in Sources */,
-				F54BB24E29D3136D00283E13 /* Shake.swift in Sources */,
 				F540353529D779D100A3A848 /* ValidateNameUseCase.swift in Sources */,
 				F52A99F929B0C060004A3646 /* SignOutUseCase.swift in Sources */,
 				F5DCDB3829C2005A0030BB9A /* SignUpScreen.swift in Sources */,
