@@ -37,6 +37,8 @@
 		F540353829D7FC7000A3A848 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F540353729D7FC7000A3A848 /* BaseViewModel.swift */; };
 		F540353D29D80F2300A3A848 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F540353C29D80F2300A3A848 /* ErrorHandler.swift */; };
 		F540354029D8137000A3A848 /* LeafError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F540353F29D8137000A3A848 /* LeafError.swift */; };
+		F540354629D86D5F00A3A848 /* SignInViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F540354529D86D5F00A3A848 /* SignInViewModelTests.swift */; };
+		F540354929D86D8E00A3A848 /* BaseViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F540354829D86D8E00A3A848 /* BaseViewModelTests.swift */; };
 		F54BB20329D0638000283E13 /* LaunchDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54BB20229D0638000283E13 /* LaunchDataSourceProtocol.swift */; };
 		F54BB20529D063B700283E13 /* FirebaseLaunchDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54BB20429D063B700283E13 /* FirebaseLaunchDataSource.swift */; };
 		F54BB20729D0641400283E13 /* LaunchRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54BB20629D0641400283E13 /* LaunchRepositoryProtocol.swift */; };
@@ -125,6 +127,8 @@
 		F540353729D7FC7000A3A848 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		F540353C29D80F2300A3A848 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 		F540353F29D8137000A3A848 /* LeafError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeafError.swift; sourceTree = "<group>"; };
+		F540354529D86D5F00A3A848 /* SignInViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModelTests.swift; sourceTree = "<group>"; };
+		F540354829D86D8E00A3A848 /* BaseViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModelTests.swift; sourceTree = "<group>"; };
 		F54BB20229D0638000283E13 /* LaunchDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDataSourceProtocol.swift; sourceTree = "<group>"; };
 		F54BB20429D063B700283E13 /* FirebaseLaunchDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseLaunchDataSource.swift; sourceTree = "<group>"; };
 		F54BB20629D0641400283E13 /* LaunchRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchRepositoryProtocol.swift; sourceTree = "<group>"; };
@@ -244,6 +248,7 @@
 		F51E01632952389400D75D3D /* LeafTests */ = {
 			isa = PBXGroup;
 			children = (
+				F540354A29D86D9500A3A848 /* Services */,
 				F540352B29D75A8800A3A848 /* Features */,
 				F59C4AA6296C64340022A77E /* Helpers */,
 				F56FE08A2992F6EE0025914D /* Mocks */,
@@ -274,6 +279,7 @@
 		F540352B29D75A8800A3A848 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				F540354729D86D7F00A3A848 /* Base */,
 				F540352C29D75A8F00A3A848 /* Auth */,
 			);
 			path = Features;
@@ -293,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				F540353029D75AF200A3A848 /* SignUpViewModelTests.swift */,
+				F540354529D86D5F00A3A848 /* SignInViewModelTests.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -350,6 +357,21 @@
 				F540353C29D80F2300A3A848 /* ErrorHandler.swift */,
 			);
 			path = Error;
+			sourceTree = "<group>";
+		};
+		F540354729D86D7F00A3A848 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				F540354829D86D8E00A3A848 /* BaseViewModelTests.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		F540354A29D86D9500A3A848 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		F54BB1D129D05A4000283E13 /* Helpers */ = {
@@ -1035,6 +1057,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F52A99EC29B0B3D8004A3646 /* UserProfileDataSourceMock.swift in Sources */,
+				F540354929D86D8E00A3A848 /* BaseViewModelTests.swift in Sources */,
 				F559AD28299FBD1600A87061 /* FirebaseAuthDataSourceMock.swift in Sources */,
 				F52A99F329B0BB8A004A3646 /* SignUpUseCaseTests.swift in Sources */,
 				F52A99FF29B0C2C8004A3646 /* GetCurrentUserUseCaseTests.swift in Sources */,
@@ -1045,6 +1068,7 @@
 				F52A99EA29B0B385004A3646 /* UserProfileRepositoryTests.swift in Sources */,
 				F52A9A0829B0C8F1004A3646 /* UpdateUserProfileUseCaseTests.swift in Sources */,
 				F59C4AA8296C64620022A77E /* XCTAssertThrowsError+Async.swift in Sources */,
+				F540354629D86D5F00A3A848 /* SignInViewModelTests.swift in Sources */,
 				F52A9A0329B0C454004A3646 /* GetUserProfileUseCaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

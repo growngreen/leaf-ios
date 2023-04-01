@@ -116,7 +116,7 @@ extension AuthAssembly {
     func assembleViewModel(_ container: Container) {
         container.register(SignUpViewModel.self) { (resolver: Resolver, signUpCoordinating: SignUpCoordinating) in
             SignUpViewModel(
-                authCoordinating: signUpCoordinating,
+                signUpCoordinating: signUpCoordinating,
                 errorHandler: resolver.resolve((any ErrorHandlerProtocol).self)!,
                 signUpUseCase: resolver.resolve(SignUpUseCase.self)!
             )

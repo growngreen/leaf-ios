@@ -167,11 +167,29 @@ final class SignUpViewModelTests: XCTestCase {
         XCTAssertEqual(didAuthenticateCount, 1)
     }
 
+    func test_submitButton_withValidInputShouldCreateAccount() async {
+        // given
+        let sut = makeSUT()
+
+        sut.name = "Test"
+        sut.email = "test@gmail.com"
+        sut.password = "test123456"
+        sut.confirmPassword = "test123456"
+
+        // when
+        sut.signUp()
+
+        try? await Task.sleep(for: .seconds(1))
+
+        // then
+        XCTAssertEqual(didAuthenticateCount, 1)
+    }
+
     // MARK: - Helpers
 
     func makeSUT(users: [String : (user: UserDTO, password: String)] = [:]) -> SignUpViewModel {
         SignUpViewModel(
-            authCoordinating: self,
+            signUpCoordinating: self,
             errorHandler: ErrorHandler<AuthError>(),
             signUpUseCase: SignUpUseCase(
                 authRepository: AuthRepository(
@@ -187,9 +205,9 @@ final class SignUpViewModelTests: XCTestCase {
     }
 }
 
-extension SignUpViewModelTests: AuthCoordinating {
-
-    func didAuthenticate() {
+extension SignUpViewModelTests: SignUpCoordinating {
+    
+    func didSignUp() {
         didAuthenticateCount += 1
     }
 

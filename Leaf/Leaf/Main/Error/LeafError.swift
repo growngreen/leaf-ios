@@ -27,3 +27,20 @@ enum LeafError: LocalizedError {
         }
     }
 }
+
+extension LeafError: Equatable {
+    static func == (lhs: LeafError, rhs: LeafError) -> Bool {
+        switch (lhs, rhs) {
+        case (.general, .general):
+            return true
+        case (.default(let lhsType), .default(let rhsType)):
+            return lhsType.localizedDescription == rhsType.localizedDescription
+        case (.localized(let lhsType), .localized(let rhsType)):
+            return lhsType.localizedDescription == rhsType.localizedDescription
+        case (.system(let lhsType), .system(let rhsType)):
+            return lhsType.localizedDescription == rhsType.localizedDescription
+        default:
+            return false
+        }
+    }
+}

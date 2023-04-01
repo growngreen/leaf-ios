@@ -25,7 +25,7 @@ class SignUpViewModel: BaseViewModel {
     @Published var password: String = ""
     @Published var confirmPassword: String = ""
 
-    private weak var authCoordinating: SignUpCoordinating?
+    private weak var signUpCoordinating: SignUpCoordinating?
 
     private let signUpUseCase: SignUpUseCase
 
@@ -37,11 +37,11 @@ class SignUpViewModel: BaseViewModel {
     }
 
     init(
-        authCoordinating: SignUpCoordinating?,
+        signUpCoordinating: SignUpCoordinating?,
         errorHandler: any ErrorHandlerProtocol,
         signUpUseCase: SignUpUseCase
     ) {
-        self.authCoordinating = authCoordinating
+        self.signUpCoordinating = signUpCoordinating
         self.signUpUseCase = signUpUseCase
 
         super.init(errorHandler: errorHandler)
@@ -58,7 +58,7 @@ class SignUpViewModel: BaseViewModel {
                 try await self.signUpUseCase.execute(name: name, email: email, password: password, confirmPassword: confirmPassword)
 
                 await MainActor.run(body: {
-                    self.authCoordinating?.didSignUp()
+                    self.signUpCoordinating?.didSignUp()
                 })
             } catch {
                 self.handle(error)
@@ -67,7 +67,7 @@ class SignUpViewModel: BaseViewModel {
     }
 
     func didTapSignIn() {
-        authCoordinating?.didRequestSignIn()
+        signUpCoordinating?.didRequestSignIn()
     }
 
     func submit(_ field: SignUpField) {
