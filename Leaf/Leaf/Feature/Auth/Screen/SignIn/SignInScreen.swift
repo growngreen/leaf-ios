@@ -41,7 +41,6 @@ struct SignInScreen: View {
         .onReceive(viewModel.$focusedField) { field in
             focusedField = field
         }
-        .alert(isPresented: $viewModel.hasError, error: viewModel.error, actions: {})
     }
 }
 

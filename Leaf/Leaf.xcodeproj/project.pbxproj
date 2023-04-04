@@ -34,9 +34,6 @@
 		F540353129D75AF200A3A848 /* SignUpViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F540353029D75AF200A3A848 /* SignUpViewModelTests.swift */; };
 		F540353329D76B4B00A3A848 /* ValidatePasswordUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F540353229D76B4B00A3A848 /* ValidatePasswordUseCase.swift */; };
 		F540353529D779D100A3A848 /* ValidateNameUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F540353429D779D100A3A848 /* ValidateNameUseCase.swift */; };
-		F540353829D7FC7000A3A848 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F540353729D7FC7000A3A848 /* BaseViewModel.swift */; };
-		F540353D29D80F2300A3A848 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F540353C29D80F2300A3A848 /* ErrorHandler.swift */; };
-		F540354029D8137000A3A848 /* LeafError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F540353F29D8137000A3A848 /* LeafError.swift */; };
 		F540354629D86D5F00A3A848 /* SignInViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F540354529D86D5F00A3A848 /* SignInViewModelTests.swift */; };
 		F540354929D86D8E00A3A848 /* BaseViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F540354829D86D8E00A3A848 /* BaseViewModelTests.swift */; };
 		F54BB20329D0638000283E13 /* LaunchDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54BB20229D0638000283E13 /* LaunchDataSourceProtocol.swift */; };
@@ -124,9 +121,6 @@
 		F540353029D75AF200A3A848 /* SignUpViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModelTests.swift; sourceTree = "<group>"; };
 		F540353229D76B4B00A3A848 /* ValidatePasswordUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatePasswordUseCase.swift; sourceTree = "<group>"; };
 		F540353429D779D100A3A848 /* ValidateNameUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateNameUseCase.swift; sourceTree = "<group>"; };
-		F540353729D7FC7000A3A848 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
-		F540353C29D80F2300A3A848 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
-		F540353F29D8137000A3A848 /* LeafError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeafError.swift; sourceTree = "<group>"; };
 		F540354529D86D5F00A3A848 /* SignInViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModelTests.swift; sourceTree = "<group>"; };
 		F540354829D86D8E00A3A848 /* BaseViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModelTests.swift; sourceTree = "<group>"; };
 		F54BB20229D0638000283E13 /* LaunchDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDataSourceProtocol.swift; sourceTree = "<group>"; };
@@ -237,10 +231,6 @@
 			children = (
 				F56C47652954695000BD11D4 /* Main */,
 				F54BB1D229D05A5600283E13 /* Feature */,
-				F54BB24529D312DB00283E13 /* Presentation */,
-				F54BB1F629D0619100283E13 /* Navigation */,
-				F54BB25729D4987F00283E13 /* SupportingFiles */,
-				F54BB1D129D05A4000283E13 /* Helpers */,
 			);
 			path = Leaf;
 			sourceTree = "<group>";
@@ -326,39 +316,6 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
-		F540353629D7FC5900A3A848 /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				F540354329D8527800A3A848 /* Error */,
-				F540354229D8526F00A3A848 /* ViewModel */,
-			);
-			path = Base;
-			sourceTree = "<group>";
-		};
-		F540353E29D8136500A3A848 /* Error */ = {
-			isa = PBXGroup;
-			children = (
-				F540353F29D8137000A3A848 /* LeafError.swift */,
-			);
-			path = Error;
-			sourceTree = "<group>";
-		};
-		F540354229D8526F00A3A848 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				F540353729D7FC7000A3A848 /* BaseViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		F540354329D8527800A3A848 /* Error */ = {
-			isa = PBXGroup;
-			children = (
-				F540353C29D80F2300A3A848 /* ErrorHandler.swift */,
-			);
-			path = Error;
-			sourceTree = "<group>";
-		};
 		F540354729D86D7F00A3A848 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -372,15 +329,6 @@
 			children = (
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		F54BB1D129D05A4000283E13 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				F540353629D7FC5900A3A848 /* Base */,
-				F59C034D2991B25D0096CB55 /* Extensions */,
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 		F54BB1D229D05A5600283E13 /* Feature */ = {
@@ -398,7 +346,6 @@
 			isa = PBXGroup;
 			children = (
 				F54BB22429D188A300283E13 /* Model */,
-				F54BB1EF29D060D000283E13 /* Assembly */,
 				F54BB1F029D060E900283E13 /* Screen */,
 				F54BB1E329D05D9D00283E13 /* UseCase */,
 				F54BB1D929D05BB300283E13 /* Repository */,
@@ -411,7 +358,6 @@
 			isa = PBXGroup;
 			children = (
 				F59C032B29919E010096CB55 /* AuthDataSourceProtocol.swift */,
-				F59C032D29919E890096CB55 /* FirebaseAuthDataSource.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -428,7 +374,6 @@
 		F54BB1DE29D05C6900283E13 /* UserProfile */ = {
 			isa = PBXGroup;
 			children = (
-				F54BB1F229D0611B00283E13 /* Assembly */,
 				F54BB1F329D0613300283E13 /* Screen */,
 				F54BB1EA29D0600200283E13 /* Model */,
 				F54BB1E229D05D7E00283E13 /* UseCase */,
@@ -442,7 +387,6 @@
 			isa = PBXGroup;
 			children = (
 				F52A99DE29B0AE0A004A3646 /* UserProfileDataSourceProtocol.swift */,
-				F52A99E129B0AF1B004A3646 /* FirebaseUserProfileDataSource.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -503,14 +447,6 @@
 			path = UserProfile;
 			sourceTree = "<group>";
 		};
-		F54BB1EF29D060D000283E13 /* Assembly */ = {
-			isa = PBXGroup;
-			children = (
-				F5978AFC29C35C25004F83E1 /* AuthAssembly.swift */,
-			);
-			path = Assembly;
-			sourceTree = "<group>";
-		};
 		F54BB1F029D060E900283E13 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
@@ -526,14 +462,6 @@
 				F535077C29C3531F00E7ED7F /* SignUpViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		F54BB1F229D0611B00283E13 /* Assembly */ = {
-			isa = PBXGroup;
-			children = (
-				F54BB20F29D068C000283E13 /* UserProfileAssembly.swift */,
-			);
-			path = Assembly;
 			sourceTree = "<group>";
 		};
 		F54BB1F329D0613300283E13 /* Screen */ = {
@@ -555,7 +483,6 @@
 			isa = PBXGroup;
 			children = (
 				F54BB20C29D0650B00283E13 /* Model */,
-				F54BB1FB29D0622200283E13 /* Assembly */,
 				F54BB1F929D0620E00283E13 /* Screen */,
 				F54BB20129D0635000283E13 /* UseCase */,
 				F54BB20029D0634700283E13 /* Repository */,
@@ -580,14 +507,6 @@
 				F5DCDB3F29C204DD0030BB9A /* LaunchViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		F54BB1FB29D0622200283E13 /* Assembly */ = {
-			isa = PBXGroup;
-			children = (
-				F5978B0029C36082004F83E1 /* LaunchAssembly.swift */,
-			);
-			path = Assembly;
 			sourceTree = "<group>";
 		};
 		F54BB1FC29D0624C00283E13 /* Home */ = {
@@ -618,7 +537,6 @@
 			isa = PBXGroup;
 			children = (
 				F54BB20229D0638000283E13 /* LaunchDataSourceProtocol.swift */,
-				F54BB20429D063B700283E13 /* FirebaseLaunchDataSource.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -711,21 +629,6 @@
 			path = Validators;
 			sourceTree = "<group>";
 		};
-		F54BB24529D312DB00283E13 /* Presentation */ = {
-			isa = PBXGroup;
-			children = (
-				F54BB24629D312E700283E13 /* View */,
-			);
-			path = Presentation;
-			sourceTree = "<group>";
-		};
-		F54BB24629D312E700283E13 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		F54BB25729D4987F00283E13 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -766,9 +669,11 @@
 		F56C47652954695000BD11D4 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				F540353E29D8136500A3A848 /* Error */,
 				F5DCDB2629C1F30B0030BB9A /* AppDelegate.swift */,
 				F5DCDB2829C1F3180030BB9A /* SceneDelegate.swift */,
+				F5A62D4B29DB2047006D57E6 /* Assembly */,
+				F54BB1F629D0619100283E13 /* Navigation */,
+				F54BB25729D4987F00283E13 /* SupportingFiles */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -781,19 +686,97 @@
 			path = Mocks;
 			sourceTree = "<group>";
 		};
-		F59C034D2991B25D0096CB55 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		F59C4AA6296C64340022A77E /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				F59C4AA7296C64620022A77E /* XCTAssertThrowsError+Async.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F5A62D4B29DB2047006D57E6 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				F5A62D5829DC4080006D57E6 /* DataSource */,
+				F5A62D5729DC4065006D57E6 /* Containers */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		F5A62D4C29DB2054006D57E6 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				F5978B0029C36082004F83E1 /* LaunchAssembly.swift */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		F5A62D4D29DB205A006D57E6 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				F5978AFC29C35C25004F83E1 /* AuthAssembly.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		F5A62D4E29DB2061006D57E6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		F5A62D4F29DB206A006D57E6 /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				F54BB20F29D068C000283E13 /* UserProfileAssembly.swift */,
+			);
+			path = UserProfile;
+			sourceTree = "<group>";
+		};
+		F5A62D5729DC4065006D57E6 /* Containers */ = {
+			isa = PBXGroup;
+			children = (
+				F5A62D4C29DB2054006D57E6 /* Launch */,
+				F5A62D4D29DB205A006D57E6 /* Auth */,
+				F5A62D4E29DB2061006D57E6 /* Home */,
+				F5A62D4F29DB206A006D57E6 /* UserProfile */,
+			);
+			path = Containers;
+			sourceTree = "<group>";
+		};
+		F5A62D5829DC4080006D57E6 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				F5A62D5B29DC4096006D57E6 /* UserProfile */,
+				F5A62D5A29DC4090006D57E6 /* Auth */,
+				F5A62D5929DC408B006D57E6 /* Launch */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		F5A62D5929DC408B006D57E6 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				F54BB20429D063B700283E13 /* FirebaseLaunchDataSource.swift */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		F5A62D5A29DC4090006D57E6 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				F59C032D29919E890096CB55 /* FirebaseAuthDataSource.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		F5A62D5B29DC4096006D57E6 /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				F52A99E129B0AF1B004A3646 /* FirebaseUserProfileDataSource.swift */,
+			);
+			path = UserProfile;
 			sourceTree = "<group>";
 		};
 		F5DCDB2C29C1F4040030BB9A /* Root */ = {
@@ -1003,7 +986,6 @@
 				F5DCDB4029C204DD0030BB9A /* LaunchViewModel.swift in Sources */,
 				F52A99E529B0B230004A3646 /* UserProfileRepositoryProtocol.swift in Sources */,
 				F51E01562952389200D75D3D /* HomeScreen.swift in Sources */,
-				F540353D29D80F2300A3A848 /* ErrorHandler.swift in Sources */,
 				F52A99E229B0AF1B004A3646 /* FirebaseUserProfileDataSource.swift in Sources */,
 				F54BB20329D0638000283E13 /* LaunchDataSourceProtocol.swift in Sources */,
 				F52A99E829B0B274004A3646 /* UserProfileRepository.swift in Sources */,
@@ -1030,7 +1012,6 @@
 				F54BB26A29D4A1BC00283E13 /* R.generated.swift in Sources */,
 				F54BB23629D2D31400283E13 /* SignInScreen.swift in Sources */,
 				F5DCDB3B29C204450030BB9A /* LaunchScreen.swift in Sources */,
-				F540353829D7FC7000A3A848 /* BaseViewModel.swift in Sources */,
 				F5DCDB2929C1F3180030BB9A /* SceneDelegate.swift in Sources */,
 				F540353529D779D100A3A848 /* ValidateNameUseCase.swift in Sources */,
 				F52A99F929B0C060004A3646 /* SignOutUseCase.swift in Sources */,
@@ -1041,7 +1022,6 @@
 				F5978AFD29C35C25004F83E1 /* AuthAssembly.swift in Sources */,
 				F54BB20529D063B700283E13 /* FirebaseLaunchDataSource.swift in Sources */,
 				F54BB21D29D0777100283E13 /* UserProfileError.swift in Sources */,
-				F540354029D8137000A3A848 /* LeafError.swift in Sources */,
 				F52A99F029B0BA54004A3646 /* SignUpUseCase.swift in Sources */,
 				F54BB20729D0641400283E13 /* LaunchRepositoryProtocol.swift in Sources */,
 				F54BB22829D1890500283E13 /* AuthError.swift in Sources */,
@@ -1220,11 +1200,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = Leaf/SupportingFiles/PreviewContent;
+				DEVELOPMENT_ASSET_PATHS = Leaf/Main/SupportingFiles/PreviewContent;
 				DEVELOPMENT_TEAM = 6D227VF4C6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Leaf/SupportingFiles/Info.plist;
+				INFOPLIST_FILE = Leaf/Main/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -1249,11 +1229,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = Leaf/SupportingFiles/PreviewContent;
+				DEVELOPMENT_ASSET_PATHS = Leaf/Main/SupportingFiles/PreviewContent;
 				DEVELOPMENT_TEAM = 6D227VF4C6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Leaf/SupportingFiles/Info.plist;
+				INFOPLIST_FILE = Leaf/Main/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
