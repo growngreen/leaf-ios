@@ -15,7 +15,6 @@ final class AuthAssembly: Assembly {
         assembleDataSource(container)
         assembleRepository(container)
         assembleUseCase(container)
-        assembleHelpers(container)
         assembleViewModel(container)
     }
 }
@@ -43,17 +42,6 @@ extension AuthAssembly {
     func assembleRepository(_ container: Container) {
         container.register(AuthRepositoryProtocol.self) { resolver in
             AuthRepository(dataSource: resolver.resolve(AuthDataSourceProtocol.self)!)
-        }
-        .inObjectScope(.container)
-    }
-}
-
-// MARK: - Helpers
-
-extension AuthAssembly {
-    func assembleHelpers(_ container: Container) {
-        container.register((any ErrorHandlerProtocol).self) { resolver in
-            ErrorHandler<AuthError>()
         }
         .inObjectScope(.container)
     }
@@ -117,7 +105,6 @@ extension AuthAssembly {
         container.register(SignUpViewModel.self) { (resolver: Resolver, signUpCoordinating: SignUpCoordinating) in
             SignUpViewModel(
                 signUpCoordinating: signUpCoordinating,
-                errorHandler: resolver.resolve((any ErrorHandlerProtocol).self)!,
                 signUpUseCase: resolver.resolve(SignUpUseCase.self)!
             )
         }
@@ -125,7 +112,6 @@ extension AuthAssembly {
 
         container.register(SignInViewModel.self) { (resolver: Resolver, signInCoordinating: SignInCoordinating) in
             SignInViewModel(
-                errorHandler: resolver.resolve((any ErrorHandlerProtocol).self)!,
                 signInCoordinating: signInCoordinating,
                 signInUseCase: resolver.resolve(SignInUseCase.self)!
             )

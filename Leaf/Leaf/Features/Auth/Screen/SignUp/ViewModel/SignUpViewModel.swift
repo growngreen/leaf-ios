@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class SignUpViewModel: BaseViewModel {
+class SignUpViewModel: ObservableObject {
 
     enum SignUpField {
         case name
@@ -38,13 +38,10 @@ class SignUpViewModel: BaseViewModel {
 
     init(
         signUpCoordinating: SignUpCoordinating?,
-        errorHandler: any ErrorHandlerProtocol,
         signUpUseCase: SignUpUseCase
     ) {
         self.signUpCoordinating = signUpCoordinating
         self.signUpUseCase = signUpUseCase
-
-        super.init(errorHandler: errorHandler)
 
         bind()
     }
@@ -61,7 +58,7 @@ class SignUpViewModel: BaseViewModel {
                     self.signUpCoordinating?.didSignUp()
                 })
             } catch {
-                self.handle(error)
+                print(error.localizedDescription)
             }
         })
     }
