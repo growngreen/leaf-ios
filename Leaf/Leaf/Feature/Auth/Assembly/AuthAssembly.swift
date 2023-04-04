@@ -12,7 +12,18 @@ import FirebaseAuth
 final class AuthAssembly: Assembly {
 
     func assemble(container: Container) {
+        assembleDataSource(container)
+        assembleRepository(container)
+        assembleUseCase(container)
+        assembleHelpers(container)
+        assembleViewModel(container)
+    }
+}
 
+// MARK: - DataSource
+
+extension AuthAssembly {
+    func assembleDataSource(_ container: Container) {
         container.register(Auth.self) { _ in
             Auth.auth()
         }
@@ -22,11 +33,50 @@ final class AuthAssembly: Assembly {
             FirebaseAuthDataSource(firebaseAuth: resolver.resolve(Auth.self)!)
         }
         .inObjectScope(.container)
+    }
+}
 
+
+// MARK: - Repository
+
+extension AuthAssembly {
+    func assembleRepository(_ container: Container) {
         container.register(AuthRepositoryProtocol.self) { resolver in
             AuthRepository(dataSource: resolver.resolve(AuthDataSourceProtocol.self)!)
         }
         .inObjectScope(.container)
+    }
+}
+
+// MARK: - Helpers
+
+extension AuthAssembly {
+    func assembleHelpers(_ container: Container) {
+        container.register((any ErrorHandlerProtocol).self) { resolver in
+            ErrorHandler<AuthError>()
+        }
+        .inObjectScope(.container)
+    }
+}
+
+// MARK: - UseCase
+
+extension AuthAssembly {
+    func assembleUseCase(_ container: Container) {
+        container.register(ValidateNameUseCase.self) { resolver in
+            ValidateNameUseCase()
+        }
+        .inObjectScope(.transient)
+
+        container.register(ValidatePasswordUseCase.self) { resolver in
+            ValidatePasswordUseCase()
+        }
+        .inObjectScope(.transient)
+
+        container.register(ValidateEmailUseCase.self) { resolver in
+            ValidateEmailUseCase()
+        }
+        .inObjectScope(.transient)
 
         container.register(GetCurrentUserUseCase.self) { resolver in
             GetCurrentUserUseCase(authRepository: resolver.resolve(AuthRepositoryProtocol.self)!)
@@ -57,34 +107,28 @@ final class AuthAssembly: Assembly {
             ConfirmPasswordUseCase(validatePasswordUseCase: resolver.resolve(ValidatePasswordUseCase.self)!)
         }
         .inObjectScope(.transient)
+    }
+}
 
-        container.register(ValidateEmailUseCase.self) { resolver in
-            ValidateEmailUseCase()
-        }
-        .inObjectScope(.transient)
+// MARK: - ViewModel
 
-        container.register(ValidatePasswordUseCase.self) { resolver in
-            ValidatePasswordUseCase()
-        }
-        .inObjectScope(.transient)
-
-        container.register(ValidateNameUseCase.self) { resolver in
-            ValidateNameUseCase()
-        }
-        .inObjectScope(.transient)
-
-        container.register((any ErrorHandlerProtocol).self) { resolver in
-            ErrorHandler<AuthError>()
-        }
-        .inObjectScope(.container)
-
-        container.register(SignUpViewModel.self) { (resolver: Resolver, authCoordinating: AuthCoordinating) in
+extension AuthAssembly {
+    func assembleViewModel(_ container: Container) {
+        container.register(SignUpViewModel.self) { (resolver: Resolver, signUpCoordinating: SignUpCoordinating) in
             SignUpViewModel(
-                authCoordinating: authCoordinating,
+                signUpCoordinating: signUpCoordinating,
                 errorHandler: resolver.resolve((any ErrorHandlerProtocol).self)!,
                 signUpUseCase: resolver.resolve(SignUpUseCase.self)!
             )
         }
         .inObjectScope(.transient)
+
+        container.register(SignInViewModel.self) { (resolver: Resolver, signInCoordinating: SignInCoordinating) in
+            SignInViewModel(
+                errorHandler: resolver.resolve((any ErrorHandlerProtocol).self)!,
+                signInCoordinating: signInCoordinating,
+                signInUseCase: resolver.resolve(SignInUseCase.self)!
+            )
+        }
     }
 }

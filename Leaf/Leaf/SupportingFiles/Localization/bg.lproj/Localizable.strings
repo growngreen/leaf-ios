@@ -30,3 +30,11 @@
 "sign_up_footer_text" = "Вече имате акаунт?";
 "sign_up_sign_in_footer_text" = "Вход";
 "sign_up_section_footer_text" = "Моля попълнете формата, за да създадете вашия акаунт";
+
+// MARK: - Sign In
+
+"sign_in_title" = "Вход";
+"sign_in_footer_text" = "Нямате акаунт?";
+"sign_in_sign_in_footer_text" = "Регистрация";
+"sign_in_button_title" = "Вход";
+"sign_in_section_footer_text" = "Моля въведете имейл и парола.";

@@ -9,8 +9,13 @@ import UIKit
 import SwiftUI
 import Swinject
 
-protocol AuthCoordinating: AnyObject {
-    func didAuthenticate()
+protocol SignInCoordinating: AnyObject {
+    func didSignIn()
+    func didRequestSignUp()
+}
+
+protocol SignUpCoordinating: AnyObject {
+    func didSignUp()
     func didRequestSignIn()
 }
 
@@ -29,17 +34,13 @@ class AuthCoordinator: CoordinatorProtocol {
     }
 
     func start() {
-        let view = SignUpScreen(viewModel: assembler.resolver.resolve(SignUpViewModel.self, argument: self as AuthCoordinating)!)
-        let hostingController = UIHostingController(rootView: view)
-
-        navigationController.setViewControllers([hostingController], animated: false)
-        hostingController.navigationController?.navigationBar.prefersLargeTitles = true
+        showSignIn()
     }
 }
 
-extension AuthCoordinator: AuthCoordinating {
+extension AuthCoordinator: SignUpCoordinating {
 
-    func didAuthenticate() {
+    func didSignUp() {
         parent?.coordinatorDidAuthenticate(self)
     }
 
@@ -48,12 +49,32 @@ extension AuthCoordinator: AuthCoordinating {
     }
 }
 
+extension AuthCoordinator: SignInCoordinating {
+
+    func didSignIn() {
+        parent?.coordinatorDidAuthenticate(self)
+    }
+
+    func didRequestSignUp() {
+        showSignUp()
+    }
+}
+
 private extension AuthCoordinator {
 
     func showSignIn() {
-        let view = SignInScreen()
+        let view = SignInScreen(viewModel: assembler.resolver.resolve(SignInViewModel.self, argument: self as SignInCoordinating)!)
         let hostingController = UIHostingController(rootView: view)
 
-        navigationController.pushViewController(hostingController, animated: true)
+        navigationController.setViewControllers([hostingController], animated: false)
+        hostingController.navigationController?.navigationBar.prefersLargeTitles = true
+    }
+
+    func showSignUp() {
+        let view = SignUpScreen(viewModel: assembler.resolver.resolve(SignUpViewModel.self, argument: self as SignUpCoordinating)!)
+        let hostingController = UIHostingController(rootView: view)
+
+        navigationController.setViewControllers([hostingController], animated: false)
+        hostingController.navigationController?.navigationBar.prefersLargeTitles = true
     }
 }
