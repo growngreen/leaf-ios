@@ -230,7 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				F56C47652954695000BD11D4 /* Main */,
-				F54BB1D229D05A5600283E13 /* Feature */,
+				F54BB1D229D05A5600283E13 /* Features */,
 			);
 			path = Leaf;
 			sourceTree = "<group>";
@@ -331,7 +331,7 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		F54BB1D229D05A5600283E13 /* Feature */ = {
+		F54BB1D229D05A5600283E13 /* Features */ = {
 			isa = PBXGroup;
 			children = (
 				F54BB1F829D061FF00283E13 /* Launch */,
@@ -339,7 +339,7 @@
 				F54BB1FC29D0624C00283E13 /* Home */,
 				F54BB1DE29D05C6900283E13 /* UserProfile */,
 			);
-			path = Feature;
+			path = Features;
 			sourceTree = "<group>";
 		};
 		F54BB1D729D05B8E00283E13 /* Auth */ = {
@@ -671,6 +671,7 @@
 			children = (
 				F5DCDB2629C1F30B0030BB9A /* AppDelegate.swift */,
 				F5DCDB2829C1F3180030BB9A /* SceneDelegate.swift */,
+				F5A62D5829DC4080006D57E6 /* DataSource */,
 				F5A62D4B29DB2047006D57E6 /* Assembly */,
 				F54BB1F629D0619100283E13 /* Navigation */,
 				F54BB25729D4987F00283E13 /* SupportingFiles */,
@@ -697,8 +698,10 @@
 		F5A62D4B29DB2047006D57E6 /* Assembly */ = {
 			isa = PBXGroup;
 			children = (
-				F5A62D5829DC4080006D57E6 /* DataSource */,
-				F5A62D5729DC4065006D57E6 /* Containers */,
+				F5A62D4C29DB2054006D57E6 /* Launch */,
+				F5A62D4D29DB205A006D57E6 /* Auth */,
+				F5A62D4E29DB2061006D57E6 /* Home */,
+				F5A62D4F29DB206A006D57E6 /* UserProfile */,
 			);
 			path = Assembly;
 			sourceTree = "<group>";
@@ -734,23 +737,12 @@
 			path = UserProfile;
 			sourceTree = "<group>";
 		};
-		F5A62D5729DC4065006D57E6 /* Containers */ = {
-			isa = PBXGroup;
-			children = (
-				F5A62D4C29DB2054006D57E6 /* Launch */,
-				F5A62D4D29DB205A006D57E6 /* Auth */,
-				F5A62D4E29DB2061006D57E6 /* Home */,
-				F5A62D4F29DB206A006D57E6 /* UserProfile */,
-			);
-			path = Containers;
-			sourceTree = "<group>";
-		};
 		F5A62D5829DC4080006D57E6 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
-				F5A62D5B29DC4096006D57E6 /* UserProfile */,
-				F5A62D5A29DC4090006D57E6 /* Auth */,
 				F5A62D5929DC408B006D57E6 /* Launch */,
+				F5A62D5A29DC4090006D57E6 /* Auth */,
+				F5A62D5B29DC4096006D57E6 /* UserProfile */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
