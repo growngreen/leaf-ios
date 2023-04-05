@@ -38,3 +38,13 @@
 "sign_in_sign_in_footer_text" = "Sign up";
 "sign_in_button_title" = "Sign in";
 "sign_in_section_footer_text" = "Please enter a pair of email and password.";
+
+// MARK: - Home
+
+"home_income_title" = "Income";
+"home_expense_title" = "Expense";
+"home_balance_title" = "Balance";
+"home_add_cash_button" = "Add";
+"home_edit_categories_button" = "Edit categories";
+"home_greeting_word" = "Hey, ";
+"home_greeting_default" = "Leaf";

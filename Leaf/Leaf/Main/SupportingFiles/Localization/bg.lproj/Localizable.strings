@@ -38,3 +38,13 @@
 "sign_in_sign_in_footer_text" = "Регистрация";
 "sign_in_button_title" = "Вход";
 "sign_in_section_footer_text" = "Моля въведете имейл и парола.";
+
+// MARK: - Home
+
+"home_income_title" = "Приходи";
+"home_expense_title" = "Разходи";
+"home_balance_title" = "Баланс";
+"home_add_cash_button" = "Добави";
+"home_edit_categories_button" = "Редактирай категории";
+"home_greeting_word" = "Хей, ";
+"home_greeting_default" = "Лийф";
