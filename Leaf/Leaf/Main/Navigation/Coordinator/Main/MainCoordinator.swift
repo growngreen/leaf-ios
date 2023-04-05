@@ -20,13 +20,15 @@ class MainCoordinator: CoordinatorProtocol {
     init(navigationController: UINavigationController, parent: RootCoordinator?) {
         self.parent = parent
         self.navigationController = navigationController
-        self.assembler = Assembler([], parent: parent?.assembler)
+        self.assembler = Assembler([HomeAssembly(), AuthAssembly()], parent: parent?.assembler)
     }
 
     func start() {
-        let view = HomeScreen()
+        let viewModel = assembler.resolver.resolve(HomeScreenViewModel.self)!
+        let view = HomeScreen(viewModel: viewModel)
         let hostingController = UIHostingController(rootView: view)
 
         navigationController.setViewControllers([hostingController], animated: false)
+        hostingController.navigationController?.navigationBar.prefersLargeTitles = true
     }
 }

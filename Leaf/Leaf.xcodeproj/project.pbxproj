@@ -69,6 +69,11 @@
 		F5A62D6329DD445D006D57E6 /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A62D6229DD445D006D57E6 /* AlertPresenter.swift */; };
 		F5A62D6629DD4B35006D57E6 /* CommonAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A62D6529DD4B35006D57E6 /* CommonAssembly.swift */; };
 		F5A62D6929DD5224006D57E6 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A62D6829DD5224006D57E6 /* BaseViewModel.swift */; };
+		F5A62D6D29DD6434006D57E6 /* HomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A62D6C29DD6434006D57E6 /* HomeScreenViewModel.swift */; };
+		F5A62D7029DD65EB006D57E6 /* HomeAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A62D6F29DD65EB006D57E6 /* HomeAssembly.swift */; };
+		F5A62D7929DD7E98006D57E6 /* UserGreetingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A62D7829DD7E98006D57E6 /* UserGreetingUseCase.swift */; };
+		F5A62D7B29DD8400006D57E6 /* CurrentUserNameUseCaseAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A62D7A29DD83FF006D57E6 /* CurrentUserNameUseCaseAdapter.swift */; };
+		F5A62D7E29DDB8B1006D57E6 /* AmmountGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A62D7D29DDB8B1006D57E6 /* AmmountGridCell.swift */; };
 		F5DCDB2729C1F30B0030BB9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCDB2629C1F30B0030BB9A /* AppDelegate.swift */; };
 		F5DCDB2929C1F3180030BB9A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCDB2829C1F3180030BB9A /* SceneDelegate.swift */; };
 		F5DCDB2B29C1F3D60030BB9A /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCDB2A29C1F3D60030BB9A /* CoordinatorProtocol.swift */; };
@@ -162,6 +167,11 @@
 		F5A62D6229DD445D006D57E6 /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
 		F5A62D6529DD4B35006D57E6 /* CommonAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonAssembly.swift; sourceTree = "<group>"; };
 		F5A62D6829DD5224006D57E6 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		F5A62D6C29DD6434006D57E6 /* HomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModel.swift; sourceTree = "<group>"; };
+		F5A62D6F29DD65EB006D57E6 /* HomeAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAssembly.swift; sourceTree = "<group>"; };
+		F5A62D7829DD7E98006D57E6 /* UserGreetingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGreetingUseCase.swift; sourceTree = "<group>"; };
+		F5A62D7A29DD83FF006D57E6 /* CurrentUserNameUseCaseAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserNameUseCaseAdapter.swift; sourceTree = "<group>"; };
+		F5A62D7D29DDB8B1006D57E6 /* AmmountGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmmountGridCell.swift; sourceTree = "<group>"; };
 		F5DCDB2629C1F30B0030BB9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5DCDB2829C1F3180030BB9A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F5DCDB2A29C1F3D60030BB9A /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
@@ -521,7 +531,11 @@
 		F54BB1FC29D0624C00283E13 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				F5A62D7429DD7A5C006D57E6 /* Model */,
 				F54BB1FD29D0625E00283E13 /* Screen */,
+				F5A62D7129DD7A2B006D57E6 /* UseCase */,
+				F5A62D7229DD7A3D006D57E6 /* Repository */,
+				F5A62D7329DD7A4D006D57E6 /* DataSource */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -530,6 +544,7 @@
 			isa = PBXGroup;
 			children = (
 				F51E01552952389200D75D3D /* HomeScreen.swift */,
+				F5A62D7C29DDB89F006D57E6 /* View */,
 				F54BB1FE29D0626800283E13 /* ViewModel */,
 			);
 			path = Screen;
@@ -538,6 +553,7 @@
 		F54BB1FE29D0626800283E13 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F5A62D6C29DD6434006D57E6 /* HomeScreenViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -680,6 +696,7 @@
 			children = (
 				F5DCDB2629C1F30B0030BB9A /* AppDelegate.swift */,
 				F5DCDB2829C1F3180030BB9A /* SceneDelegate.swift */,
+				F5A62D7529DD7CB4006D57E6 /* Adapters */,
 				F5A62D5829DC4080006D57E6 /* DataSource */,
 				F5A62D4B29DB2047006D57E6 /* Assembly */,
 				F54BB1F629D0619100283E13 /* Navigation */,
@@ -735,6 +752,7 @@
 		F5A62D4E29DB2061006D57E6 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				F5A62D6F29DD65EB006D57E6 /* HomeAssembly.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -752,6 +770,7 @@
 			children = (
 				F5A62D5929DC408B006D57E6 /* Launch */,
 				F5A62D5A29DC4090006D57E6 /* Auth */,
+				F5A62D6E29DD65DD006D57E6 /* Home */,
 				F5A62D5B29DC4096006D57E6 /* UserProfile */,
 			);
 			path = DataSource;
@@ -829,6 +848,58 @@
 				F5A62D6829DD5224006D57E6 /* BaseViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F5A62D6E29DD65DD006D57E6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		F5A62D7129DD7A2B006D57E6 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				F5A62D7829DD7E98006D57E6 /* UserGreetingUseCase.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		F5A62D7229DD7A3D006D57E6 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		F5A62D7329DD7A4D006D57E6 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		F5A62D7429DD7A5C006D57E6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F5A62D7529DD7CB4006D57E6 /* Adapters */ = {
+			isa = PBXGroup;
+			children = (
+				F5A62D7A29DD83FF006D57E6 /* CurrentUserNameUseCaseAdapter.swift */,
+			);
+			path = Adapters;
+			sourceTree = "<group>";
+		};
+		F5A62D7C29DDB89F006D57E6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F5A62D7D29DDB8B1006D57E6 /* AmmountGridCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		F5DCDB2C29C1F4040030BB9A /* Root */ = {
@@ -1042,7 +1113,9 @@
 				F52A99E229B0AF1B004A3646 /* FirebaseUserProfileDataSource.swift in Sources */,
 				F54BB20329D0638000283E13 /* LaunchDataSourceProtocol.swift in Sources */,
 				F52A99E829B0B274004A3646 /* UserProfileRepository.swift in Sources */,
+				F5A62D7029DD65EB006D57E6 /* HomeAssembly.swift in Sources */,
 				F52A99DF29B0AE0A004A3646 /* UserProfileDataSourceProtocol.swift in Sources */,
+				F5A62D6D29DD6434006D57E6 /* HomeScreenViewModel.swift in Sources */,
 				F52A99FD29B0C212004A3646 /* GetCurrentUserUseCase.swift in Sources */,
 				F52A99DC29B0ADC2004A3646 /* UserProfileDTO.swift in Sources */,
 				F559AD26299FB3C300A87061 /* AuthRepositoryProtocol.swift in Sources */,
@@ -1063,6 +1136,7 @@
 				F59C032E29919E890096CB55 /* FirebaseAuthDataSource.swift in Sources */,
 				F59C032C29919E010096CB55 /* AuthDataSourceProtocol.swift in Sources */,
 				F540353329D76B4B00A3A848 /* ValidatePasswordUseCase.swift in Sources */,
+				F5A62D7E29DDB8B1006D57E6 /* AmmountGridCell.swift in Sources */,
 				F5DCDB3229C1F7190030BB9A /* RootCoordinator.swift in Sources */,
 				F54BB26A29D4A1BC00283E13 /* R.generated.swift in Sources */,
 				F54BB23629D2D31400283E13 /* SignInScreen.swift in Sources */,
@@ -1072,6 +1146,7 @@
 				F52A99F929B0C060004A3646 /* SignOutUseCase.swift in Sources */,
 				F5DCDB3829C2005A0030BB9A /* SignUpScreen.swift in Sources */,
 				F54BB20B29D0648D00283E13 /* GetAuthStateUseCase.swift in Sources */,
+				F5A62D7B29DD8400006D57E6 /* CurrentUserNameUseCaseAdapter.swift in Sources */,
 				F54BB22A29D1891100283E13 /* User.swift in Sources */,
 				F54BB22C29D1891900283E13 /* UserDTO.swift in Sources */,
 				F5978AFD29C35C25004F83E1 /* AuthAssembly.swift in Sources */,
@@ -1081,6 +1156,7 @@
 				F54BB20729D0641400283E13 /* LaunchRepositoryProtocol.swift in Sources */,
 				F5A62D6329DD445D006D57E6 /* AlertPresenter.swift in Sources */,
 				F54BB22829D1890500283E13 /* AuthError.swift in Sources */,
+				F5A62D7929DD7E98006D57E6 /* UserGreetingUseCase.swift in Sources */,
 				F52A99DA29B0AD8A004A3646 /* UserProfile.swift in Sources */,
 				F535077D29C3531F00E7ED7F /* SignUpViewModel.swift in Sources */,
 				F5978B0129C36082004F83E1 /* LaunchAssembly.swift in Sources */,
