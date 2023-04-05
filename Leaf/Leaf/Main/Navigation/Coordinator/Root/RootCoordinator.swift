@@ -21,7 +21,7 @@ class RootCoordinator: CoordinatorProtocol {
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
-        self.assembler = Assembler([LaunchAssembly()], parent: nil)
+        self.assembler = Assembler([CommonAssembly(), LaunchAssembly()], parent: nil)
     }
 
     func start() {
