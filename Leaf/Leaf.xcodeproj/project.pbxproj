@@ -65,6 +65,10 @@
 		F59C032C29919E010096CB55 /* AuthDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59C032B29919E010096CB55 /* AuthDataSourceProtocol.swift */; };
 		F59C032E29919E890096CB55 /* FirebaseAuthDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59C032D29919E890096CB55 /* FirebaseAuthDataSource.swift */; };
 		F59C4AA8296C64620022A77E /* XCTAssertThrowsError+Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59C4AA7296C64620022A77E /* XCTAssertThrowsError+Async.swift */; };
+		F5A62D5F29DC46BE006D57E6 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A62D5E29DC46BE006D57E6 /* ErrorHandler.swift */; };
+		F5A62D6329DD445D006D57E6 /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A62D6229DD445D006D57E6 /* AlertPresenter.swift */; };
+		F5A62D6629DD4B35006D57E6 /* CommonAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A62D6529DD4B35006D57E6 /* CommonAssembly.swift */; };
+		F5A62D6929DD5224006D57E6 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A62D6829DD5224006D57E6 /* BaseViewModel.swift */; };
 		F5DCDB2729C1F30B0030BB9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCDB2629C1F30B0030BB9A /* AppDelegate.swift */; };
 		F5DCDB2929C1F3180030BB9A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCDB2829C1F3180030BB9A /* SceneDelegate.swift */; };
 		F5DCDB2B29C1F3D60030BB9A /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCDB2A29C1F3D60030BB9A /* CoordinatorProtocol.swift */; };
@@ -154,6 +158,10 @@
 		F59C032B29919E010096CB55 /* AuthDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataSourceProtocol.swift; sourceTree = "<group>"; };
 		F59C032D29919E890096CB55 /* FirebaseAuthDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthDataSource.swift; sourceTree = "<group>"; };
 		F59C4AA7296C64620022A77E /* XCTAssertThrowsError+Async.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTAssertThrowsError+Async.swift"; sourceTree = "<group>"; };
+		F5A62D5E29DC46BE006D57E6 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
+		F5A62D6229DD445D006D57E6 /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
+		F5A62D6529DD4B35006D57E6 /* CommonAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonAssembly.swift; sourceTree = "<group>"; };
+		F5A62D6829DD5224006D57E6 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		F5DCDB2629C1F30B0030BB9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5DCDB2829C1F3180030BB9A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F5DCDB2A29C1F3D60030BB9A /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
@@ -231,6 +239,7 @@
 			children = (
 				F56C47652954695000BD11D4 /* Main */,
 				F54BB1D229D05A5600283E13 /* Features */,
+				F5A62D5C29DC4511006D57E6 /* Common */,
 			);
 			path = Leaf;
 			sourceTree = "<group>";
@@ -698,6 +707,7 @@
 		F5A62D4B29DB2047006D57E6 /* Assembly */ = {
 			isa = PBXGroup;
 			children = (
+				F5A62D6429DD4B25006D57E6 /* Common */,
 				F5A62D4C29DB2054006D57E6 /* Launch */,
 				F5A62D4D29DB205A006D57E6 /* Auth */,
 				F5A62D4E29DB2061006D57E6 /* Home */,
@@ -769,6 +779,56 @@
 				F52A99E129B0AF1B004A3646 /* FirebaseUserProfileDataSource.swift */,
 			);
 			path = UserProfile;
+			sourceTree = "<group>";
+		};
+		F5A62D5C29DC4511006D57E6 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F5A62D5D29DC463A006D57E6 /* Utilities */,
+				F5A62D6729DD5217006D57E6 /* ViewModel */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		F5A62D5D29DC463A006D57E6 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				F5A62D6129DD43B1006D57E6 /* Alert */,
+				F5A62D6029DD43AA006D57E6 /* Error */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		F5A62D6029DD43AA006D57E6 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				F5A62D5E29DC46BE006D57E6 /* ErrorHandler.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		F5A62D6129DD43B1006D57E6 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				F5A62D6229DD445D006D57E6 /* AlertPresenter.swift */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
+		F5A62D6429DD4B25006D57E6 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F5A62D6529DD4B35006D57E6 /* CommonAssembly.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		F5A62D6729DD5217006D57E6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F5A62D6829DD5224006D57E6 /* BaseViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		F5DCDB2C29C1F4040030BB9A /* Root */ = {
@@ -976,6 +1036,7 @@
 			files = (
 				F54BB21029D068C000283E13 /* UserProfileAssembly.swift in Sources */,
 				F5DCDB4029C204DD0030BB9A /* LaunchViewModel.swift in Sources */,
+				F5A62D6929DD5224006D57E6 /* BaseViewModel.swift in Sources */,
 				F52A99E529B0B230004A3646 /* UserProfileRepositoryProtocol.swift in Sources */,
 				F51E01562952389200D75D3D /* HomeScreen.swift in Sources */,
 				F52A99E229B0AF1B004A3646 /* FirebaseUserProfileDataSource.swift in Sources */,
@@ -986,6 +1047,7 @@
 				F52A99DC29B0ADC2004A3646 /* UserProfileDTO.swift in Sources */,
 				F559AD26299FB3C300A87061 /* AuthRepositoryProtocol.swift in Sources */,
 				F54BB20929D0643F00283E13 /* LaunchRepository.swift in Sources */,
+				F5A62D6629DD4B35006D57E6 /* CommonAssembly.swift in Sources */,
 				F54BB23929D2D32400283E13 /* SignInViewModel.swift in Sources */,
 				F54BB20E29D0651500283E13 /* AuthState.swift in Sources */,
 				F52A99F529B0BDC2004A3646 /* SignInUseCase.swift in Sources */,
@@ -995,6 +1057,7 @@
 				F5DCDB2B29C1F3D60030BB9A /* CoordinatorProtocol.swift in Sources */,
 				F54BB24129D3106400283E13 /* ValidateEmailUseCase.swift in Sources */,
 				F5DCDB2729C1F30B0030BB9A /* AppDelegate.swift in Sources */,
+				F5A62D5F29DC46BE006D57E6 /* ErrorHandler.swift in Sources */,
 				F5DCDB2F29C1F4AA0030BB9A /* AuthCoordinator.swift in Sources */,
 				F52A9A0129B0C3BC004A3646 /* GetUserProfileUseCase.swift in Sources */,
 				F59C032E29919E890096CB55 /* FirebaseAuthDataSource.swift in Sources */,
@@ -1016,6 +1079,7 @@
 				F54BB21D29D0777100283E13 /* UserProfileError.swift in Sources */,
 				F52A99F029B0BA54004A3646 /* SignUpUseCase.swift in Sources */,
 				F54BB20729D0641400283E13 /* LaunchRepositoryProtocol.swift in Sources */,
+				F5A62D6329DD445D006D57E6 /* AlertPresenter.swift in Sources */,
 				F54BB22829D1890500283E13 /* AuthError.swift in Sources */,
 				F52A99DA29B0AD8A004A3646 /* UserProfile.swift in Sources */,
 				F535077D29C3531F00E7ED7F /* SignUpViewModel.swift in Sources */,
