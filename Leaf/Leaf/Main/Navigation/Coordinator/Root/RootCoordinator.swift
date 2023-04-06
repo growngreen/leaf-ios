@@ -37,7 +37,7 @@ class RootCoordinator: CoordinatorProtocol {
         showMain()
     }
 
-    func coordinatorDidLogOut(_ coordinator: MainCoordinator) {
+    func coordinatorDidSignOut(_ coordinator: MainCoordinator) {
         childDidFinish(coordinator)
         showAuth()
     }

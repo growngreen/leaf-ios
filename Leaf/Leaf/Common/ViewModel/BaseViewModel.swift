@@ -11,8 +11,14 @@ class BaseViewModel: ObservableObject {
 
     private let errorHandler: ErrorHandlerProtocol
 
-    init(errorHandler: ErrorHandlerProtocol) {
+    let alertPresenter: AlertPresenterProtocol
+
+    init(
+        errorHandler: ErrorHandlerProtocol,
+        alertPresenter: AlertPresenterProtocol
+    ) {
         self.errorHandler = errorHandler
+        self.alertPresenter = alertPresenter
     }
 
     @MainActor

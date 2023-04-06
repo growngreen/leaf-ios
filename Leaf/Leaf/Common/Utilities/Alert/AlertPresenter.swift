@@ -23,6 +23,7 @@ struct ActionSheetButton {
 
 protocol AlertPresenterProtocol {
     func showAlert(with title: String?, message: String)
+    func showAlert(with title: String?, message: String, actions: [ActionSheetButton])
     func showActionSheet(with title: String?, message: String?, actions: [ActionSheetButton])
 }
 
@@ -31,6 +32,24 @@ class AlertPresenter: AlertPresenterProtocol {
     func showAlert(with title: String?, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
+
+        rootViewController?.present(alert, animated: true)
+    }
+
+    func showAlert(with title: String?, message: String, actions: [ActionSheetButton]) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+
+        actions.forEach { buttonAction in
+            alert.addAction(
+                UIAlertAction(
+                    title: buttonAction.title,
+                    style: style(from: buttonAction.style),
+                    handler: { _ in
+                        buttonAction.action()
+                    }
+                )
+            )
+        }
 
         rootViewController?.present(alert, animated: true)
     }

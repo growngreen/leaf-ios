@@ -9,6 +9,7 @@
 // MARK: - General
 
 "general_done_button_title" = "Готово";
+"general_cancel_button_title" = "Отказ";
 
 // MARK: - Error
 
@@ -48,3 +49,5 @@
 "home_edit_categories_button" = "Редактирай категории";
 "home_greeting_word" = "Хей, ";
 "home_greeting_default" = "Лийф";
+"home_sign_out_title" = "Изход";
+"home_sign_out_confirmation_message" = "Сигурни ли сте, че искате да излезете?";

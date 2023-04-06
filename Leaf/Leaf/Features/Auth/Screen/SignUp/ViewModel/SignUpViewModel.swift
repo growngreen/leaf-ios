@@ -37,6 +37,7 @@ class SignUpViewModel: BaseViewModel {
     }
 
     init(
+        alertPresenter: AlertPresenterProtocol,
         errorHandler: ErrorHandlerProtocol,
         signUpCoordinating: SignUpCoordinating?,
         signUpUseCase: SignUpUseCase
@@ -44,7 +45,7 @@ class SignUpViewModel: BaseViewModel {
         self.signUpCoordinating = signUpCoordinating
         self.signUpUseCase = signUpUseCase
 
-        super.init(errorHandler: errorHandler)
+        super.init(errorHandler: errorHandler, alertPresenter: alertPresenter)
 
         bind()
     }

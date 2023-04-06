@@ -33,6 +33,7 @@ class SignInViewModel: BaseViewModel {
     }
 
     init(
+        alertPresenter: AlertPresenterProtocol,
         errorHandler: ErrorHandlerProtocol,
         signInCoordinating: SignInCoordinating,
         signInUseCase: SignInUseCase
@@ -40,7 +41,7 @@ class SignInViewModel: BaseViewModel {
         self.signInCoordinating = signInCoordinating
         self.signInUseCase = signInUseCase
 
-        super.init(errorHandler: errorHandler)
+        super.init(errorHandler: errorHandler, alertPresenter: alertPresenter)
 
         bind()
     }
