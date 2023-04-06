@@ -22,10 +22,18 @@ class HomeAssembly: Assembly {
         }
         .inObjectScope(.transient)
 
-        container.register(HomeScreenViewModel.self) { resolver in
+        container.register(SignOutUseCaseProtocol.self) { resolver in
+            SignOutUseCaseAdapter(signOutUseCase: resolver.resolve(SignOutUseCase.self)!)
+        }
+        .inObjectScope(.transient)
+
+        container.register(HomeScreenViewModel.self) { (resolver: Resolver, homeCoordinating: HomeCoordinating) in
             HomeScreenViewModel(
+                homeCoordinating: homeCoordinating,
+                alertPresenter: resolver.resolve(AlertPresenterProtocol.self)!,
                 errorHandler: resolver.resolve(ErrorHandlerProtocol.self)!,
                 userGreetingUseCase: resolver.resolve(UserGreetingUseCase.self)!,
+                signOutUseCase: resolver.resolve(SignOutUseCaseProtocol.self)!,
                 currentUserNameUseCase: resolver.resolve(CurrentUserNameUseCaseProtocol.self)!
             )
         }

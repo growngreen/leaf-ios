@@ -17,17 +17,19 @@ struct HomeScreen: View {
 
     var body: some View {
         VStack {
+            ScrollView {
 
-            dataGrid
-                .frame(height: 250)
-                .padding()
+                dataGrid
+                    .frame(height: 250)
+                    .padding()
+            }
 
             Spacer()
 
             HStack {
-                editButton
-                Spacer()
                 addButton
+                Spacer()
+                editButton
             }
             .padding()
         }

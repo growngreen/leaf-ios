@@ -74,6 +74,9 @@
 		F5A62D7929DD7E98006D57E6 /* UserGreetingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A62D7829DD7E98006D57E6 /* UserGreetingUseCase.swift */; };
 		F5A62D7B29DD8400006D57E6 /* CurrentUserNameUseCaseAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A62D7A29DD83FF006D57E6 /* CurrentUserNameUseCaseAdapter.swift */; };
 		F5A62D7E29DDB8B1006D57E6 /* AmmountGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A62D7D29DDB8B1006D57E6 /* AmmountGridCell.swift */; };
+		F5A62D9A29DDC308006D57E6 /* SignOutUseCaseAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A62D9929DDC307006D57E6 /* SignOutUseCaseAdapter.swift */; };
+		F5A62D9C29DEBF8F006D57E6 /* CurrentUserNameUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A62D9B29DEBF8F006D57E6 /* CurrentUserNameUseCase.swift */; };
+		F5A62D9E29DEBFA3006D57E6 /* SignOutUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A62D9D29DEBFA3006D57E6 /* SignOutUseCase.swift */; };
 		F5DCDB2729C1F30B0030BB9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCDB2629C1F30B0030BB9A /* AppDelegate.swift */; };
 		F5DCDB2929C1F3180030BB9A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCDB2829C1F3180030BB9A /* SceneDelegate.swift */; };
 		F5DCDB2B29C1F3D60030BB9A /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCDB2A29C1F3D60030BB9A /* CoordinatorProtocol.swift */; };
@@ -172,6 +175,9 @@
 		F5A62D7829DD7E98006D57E6 /* UserGreetingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGreetingUseCase.swift; sourceTree = "<group>"; };
 		F5A62D7A29DD83FF006D57E6 /* CurrentUserNameUseCaseAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserNameUseCaseAdapter.swift; sourceTree = "<group>"; };
 		F5A62D7D29DDB8B1006D57E6 /* AmmountGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmmountGridCell.swift; sourceTree = "<group>"; };
+		F5A62D9929DDC307006D57E6 /* SignOutUseCaseAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutUseCaseAdapter.swift; sourceTree = "<group>"; };
+		F5A62D9B29DEBF8F006D57E6 /* CurrentUserNameUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserNameUseCase.swift; sourceTree = "<group>"; };
+		F5A62D9D29DEBFA3006D57E6 /* SignOutUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutUseCase.swift; sourceTree = "<group>"; };
 		F5DCDB2629C1F30B0030BB9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5DCDB2829C1F3180030BB9A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F5DCDB2A29C1F3D60030BB9A /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
@@ -861,6 +867,8 @@
 			isa = PBXGroup;
 			children = (
 				F5A62D7829DD7E98006D57E6 /* UserGreetingUseCase.swift */,
+				F5A62D9B29DEBF8F006D57E6 /* CurrentUserNameUseCase.swift */,
+				F5A62D9D29DEBFA3006D57E6 /* SignOutUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -890,6 +898,7 @@
 			isa = PBXGroup;
 			children = (
 				F5A62D7A29DD83FF006D57E6 /* CurrentUserNameUseCaseAdapter.swift */,
+				F5A62D9929DDC307006D57E6 /* SignOutUseCaseAdapter.swift */,
 			);
 			path = Adapters;
 			sourceTree = "<group>";
@@ -1111,7 +1120,9 @@
 				F52A99E529B0B230004A3646 /* UserProfileRepositoryProtocol.swift in Sources */,
 				F51E01562952389200D75D3D /* HomeScreen.swift in Sources */,
 				F52A99E229B0AF1B004A3646 /* FirebaseUserProfileDataSource.swift in Sources */,
+				F5A62D9E29DEBFA3006D57E6 /* SignOutUseCase.swift in Sources */,
 				F54BB20329D0638000283E13 /* LaunchDataSourceProtocol.swift in Sources */,
+				F5A62D9A29DDC308006D57E6 /* SignOutUseCaseAdapter.swift in Sources */,
 				F52A99E829B0B274004A3646 /* UserProfileRepository.swift in Sources */,
 				F5A62D7029DD65EB006D57E6 /* HomeAssembly.swift in Sources */,
 				F52A99DF29B0AE0A004A3646 /* UserProfileDataSourceProtocol.swift in Sources */,
@@ -1143,6 +1154,7 @@
 				F5DCDB3B29C204450030BB9A /* LaunchScreen.swift in Sources */,
 				F5DCDB2929C1F3180030BB9A /* SceneDelegate.swift in Sources */,
 				F540353529D779D100A3A848 /* ValidateNameUseCase.swift in Sources */,
+				F5A62D9C29DEBF8F006D57E6 /* CurrentUserNameUseCase.swift in Sources */,
 				F52A99F929B0C060004A3646 /* SignOutUseCase.swift in Sources */,
 				F5DCDB3829C2005A0030BB9A /* SignUpScreen.swift in Sources */,
 				F54BB20B29D0648D00283E13 /* GetAuthStateUseCase.swift in Sources */,

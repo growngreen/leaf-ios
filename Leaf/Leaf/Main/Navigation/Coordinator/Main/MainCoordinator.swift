@@ -9,6 +9,10 @@ import UIKit
 import SwiftUI
 import Swinject
 
+protocol HomeCoordinating: AnyObject {
+    func didSignedOut()
+}
+
 class MainCoordinator: CoordinatorProtocol {
 
     var childCoordinators = [CoordinatorProtocol]()
@@ -24,11 +28,18 @@ class MainCoordinator: CoordinatorProtocol {
     }
 
     func start() {
-        let viewModel = assembler.resolver.resolve(HomeScreenViewModel.self)!
+        let viewModel = assembler.resolver.resolve(HomeScreenViewModel.self, argument: self as HomeCoordinating)!
         let view = HomeScreen(viewModel: viewModel)
         let hostingController = UIHostingController(rootView: view)
 
         navigationController.setViewControllers([hostingController], animated: false)
         hostingController.navigationController?.navigationBar.prefersLargeTitles = true
+    }
+}
+
+extension MainCoordinator: HomeCoordinating {
+
+    func didSignedOut() {
+        parent?.coordinatorDidSignOut(self)
     }
 }
