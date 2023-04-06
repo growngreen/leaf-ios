@@ -33,6 +33,7 @@ struct HomeScreen: View {
             }
             .padding()
         }
+        .isLoading(viewModel.isLoading)
         .navigationTitle(viewModel.title)
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
@@ -53,6 +54,7 @@ private extension HomeScreen {
         } label: {
             Image(systemName: "ellipsis.circle")
         }
+        .disabled(viewModel.isLoading)
     }
 
     var dataGrid: some View {

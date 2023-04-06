@@ -9,6 +9,9 @@ import Foundation
 
 class BaseViewModel: ObservableObject {
 
+    @MainActor
+    @Published private(set) var isLoading: Bool = false
+
     private let errorHandler: ErrorHandlerProtocol
 
     let alertPresenter: AlertPresenterProtocol
@@ -24,5 +27,17 @@ class BaseViewModel: ObservableObject {
     @MainActor
     func handle(_ error: Error) {
         errorHandler.handle(error)
+    }
+
+    func startLoading() {
+        Task { @MainActor [weak self] in
+            self?.isLoading = true
+        }
+    }
+
+    func stopLoading() {
+        Task { @MainActor [weak self] in
+            self?.isLoading = false
+        }
     }
 }

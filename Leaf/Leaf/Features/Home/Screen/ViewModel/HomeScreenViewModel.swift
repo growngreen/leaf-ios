@@ -92,15 +92,18 @@ private extension HomeScreenViewModel {
     }
 
     func signOut() {
+        startLoading()
         signOutTask?.cancel()
         signOutTask = Task { [weak self] in
             do {
                 try await self?.signOutUseCase.execute()
 
                 await MainActor.run(body: { [weak self] in
+                    stopLoading()
                     self?.homeCoordinating?.didSignedOut()
                 })
             } catch {
+                stopLoading()
                 await self?.handle(error)
             }
         }

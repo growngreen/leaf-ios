@@ -51,6 +51,7 @@ class SignUpViewModel: BaseViewModel {
     }
 
     func signUp() {
+        startLoading()
         signUpTask?.cancel()
         signUpTask = Task(operation: { [weak self] in
             guard let self = self else { return }
@@ -59,9 +60,11 @@ class SignUpViewModel: BaseViewModel {
                 try await self.signUpUseCase.execute(name: name, email: email, password: password, confirmPassword: confirmPassword)
 
                 await MainActor.run(body: {
+                    self.stopLoading()
                     self.signUpCoordinating?.didSignUp()
                 })
             } catch {
+                self.stopLoading()
                 await handle(error)
             }
         })

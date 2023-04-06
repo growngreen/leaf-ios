@@ -37,6 +37,7 @@ struct SignUpScreen: View {
             footerText
                 .padding()
         }
+        .isLoading(viewModel.isLoading)
         .autocorrectionDisabled()
         .textInputAutocapitalization(.never)
         .navigationTitle(R.string.localizable.sign_up_title())
