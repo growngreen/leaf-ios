@@ -60,6 +60,7 @@ class SignInViewModel: BaseViewModel {
     }
 
     func signIn() {
+        startLoading()
         signInTask?.cancel()
         signInTask = Task { [weak self] in
             guard let self else { return }
@@ -68,9 +69,11 @@ class SignInViewModel: BaseViewModel {
                 try await self.signInUseCase.execute(email: self.email, password: self.password)
 
                 await MainActor.run(body: {
+                    stopLoading()
                     self.signInCoordinating?.didSignIn()
                 })
             } catch {
+                stopLoading()
                 await handle(error)
             }
         }

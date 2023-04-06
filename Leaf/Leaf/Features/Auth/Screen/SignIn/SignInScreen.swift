@@ -41,6 +41,7 @@ struct SignInScreen: View {
         .onReceive(viewModel.$focusedField) { field in
             focusedField = field
         }
+        .isLoading(viewModel.isLoading)
     }
 }
 
