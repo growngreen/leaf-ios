@@ -25,7 +25,7 @@ class AuthCoordinator: CoordinatorProtocol {
     var navigationController: UINavigationController
     var assembler: Assembler
 
-    weak var parent: RootCoordinator?
+    private weak var parent: RootCoordinator?
 
     init(navigationController: UINavigationController, parent: RootCoordinator?) {
         self.parent = parent

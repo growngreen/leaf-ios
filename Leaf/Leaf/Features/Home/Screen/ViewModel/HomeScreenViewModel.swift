@@ -15,7 +15,7 @@ class HomeScreenViewModel: BaseViewModel {
 
     private var signOutTask: Task<Void, Never>?
 
-    weak var homeCoordinating: HomeCoordinating?
+    private weak var homeCoordinating: HomeCoordinating?
 
     init(
         homeCoordinating: HomeCoordinating,
