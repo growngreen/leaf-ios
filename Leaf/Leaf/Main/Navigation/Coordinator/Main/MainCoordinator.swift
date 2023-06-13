@@ -7,24 +7,22 @@
 
 import UIKit
 import SwiftUI
-import Swinject
 
 protocol HomeCoordinating: AnyObject {
     func didSignedOut()
 }
 
-class MainCoordinator: CoordinatorProtocol {
+class MainCoordinator: BaseCoordinator {
 
-    var childCoordinators = [CoordinatorProtocol]()
-    var navigationController: UINavigationController
-    var assembler: Assembler
+    private weak var parentCoordinator: RootCoordinator?
 
-    private weak var parent: RootCoordinator?
+    init(
+        navigationController: UINavigationController,
+        parentCoordinator: RootCoordinator
+    ) {
+        self.parentCoordinator = parentCoordinator
 
-    init(navigationController: UINavigationController, parent: RootCoordinator?) {
-        self.parent = parent
-        self.navigationController = navigationController
-        self.assembler = Assembler([HomeAssembly(), AuthAssembly()], parent: parent?.assembler)
+        super.init(parent: parentCoordinator)
     }
 
     func start() {
@@ -40,6 +38,6 @@ class MainCoordinator: CoordinatorProtocol {
 extension MainCoordinator: HomeCoordinating {
 
     func didSignedOut() {
-        parent?.coordinatorDidSignOut(self)
+        parentCoordinator?.coordinatorDidSignOut(self)
     }
 }
