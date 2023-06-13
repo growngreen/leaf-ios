@@ -81,7 +81,6 @@
 		F5A62DA429DEC1A4006D57E6 /* View+loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A62DA329DEC1A4006D57E6 /* View+loading.swift */; };
 		F5DCDB2729C1F30B0030BB9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCDB2629C1F30B0030BB9A /* AppDelegate.swift */; };
 		F5DCDB2929C1F3180030BB9A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCDB2829C1F3180030BB9A /* SceneDelegate.swift */; };
-		F5DCDB2B29C1F3D60030BB9A /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCDB2A29C1F3D60030BB9A /* CoordinatorProtocol.swift */; };
 		F5DCDB2F29C1F4AA0030BB9A /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCDB2E29C1F4AA0030BB9A /* AuthCoordinator.swift */; };
 		F5DCDB3229C1F7190030BB9A /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCDB3129C1F7190030BB9A /* RootCoordinator.swift */; };
 		F5DCDB3529C1F9380030BB9A /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCDB3429C1F9380030BB9A /* MainCoordinator.swift */; };
@@ -89,6 +88,7 @@
 		F5DCDB3B29C204450030BB9A /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCDB3A29C204450030BB9A /* LaunchScreen.swift */; };
 		F5DCDB4029C204DD0030BB9A /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DCDB3F29C204DD0030BB9A /* LaunchViewModel.swift */; };
 		F5DCDB4229C215A10030BB9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5DCDB4129C215A10030BB9A /* LaunchScreen.storyboard */; };
+		F5F91BAB2A24DE4400D57147 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F91BAA2A24DE4400D57147 /* BaseCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -184,7 +184,6 @@
 		F5A62DA329DEC1A4006D57E6 /* View+loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+loading.swift"; sourceTree = "<group>"; };
 		F5DCDB2629C1F30B0030BB9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5DCDB2829C1F3180030BB9A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F5DCDB2A29C1F3D60030BB9A /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
 		F5DCDB2E29C1F4AA0030BB9A /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		F5DCDB3129C1F7190030BB9A /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
 		F5DCDB3429C1F9380030BB9A /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
@@ -192,6 +191,7 @@
 		F5DCDB3A29C204450030BB9A /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 		F5DCDB3F29C204DD0030BB9A /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
 		F5DCDB4129C215A10030BB9A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F5F91BAA2A24DE4400D57147 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,7 +287,7 @@
 		F52A9A1429B21A51004A3646 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				F5DCDB2A29C1F3D60030BB9A /* CoordinatorProtocol.swift */,
+				F5F91BAA2A24DE4400D57147 /* BaseCoordinator.swift */,
 				F5DCDB2C29C1F4040030BB9A /* Root */,
 				F5DCDB2D29C1F40A0030BB9A /* Auth */,
 				F5DCDB3329C1F91E0030BB9A /* Main */,
@@ -1161,7 +1161,6 @@
 				F54BB23F29D2D4DB00283E13 /* ConfirmPasswordUseCase.swift in Sources */,
 				F52A9A0529B0C6A3004A3646 /* UpdateUserProfileUseCase.swift in Sources */,
 				F559AD23299FB37C00A87061 /* AuthRepository.swift in Sources */,
-				F5DCDB2B29C1F3D60030BB9A /* CoordinatorProtocol.swift in Sources */,
 				F54BB24129D3106400283E13 /* ValidateEmailUseCase.swift in Sources */,
 				F5DCDB2729C1F30B0030BB9A /* AppDelegate.swift in Sources */,
 				F5A62D5F29DC46BE006D57E6 /* ErrorHandler.swift in Sources */,
@@ -1185,6 +1184,7 @@
 				F5A62D7B29DD8400006D57E6 /* CurrentUserNameUseCaseAdapter.swift in Sources */,
 				F54BB22A29D1891100283E13 /* User.swift in Sources */,
 				F54BB22C29D1891900283E13 /* UserDTO.swift in Sources */,
+				F5F91BAB2A24DE4400D57147 /* BaseCoordinator.swift in Sources */,
 				F5978AFD29C35C25004F83E1 /* AuthAssembly.swift in Sources */,
 				F54BB20529D063B700283E13 /* FirebaseLaunchDataSource.swift in Sources */,
 				F54BB21D29D0777100283E13 /* UserProfileError.swift in Sources */,

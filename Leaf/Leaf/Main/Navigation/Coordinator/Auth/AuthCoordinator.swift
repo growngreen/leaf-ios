@@ -7,7 +7,6 @@
 
 import UIKit
 import SwiftUI
-import Swinject
 
 protocol SignInCoordinating: AnyObject {
     func didSignIn()
@@ -19,18 +18,17 @@ protocol SignUpCoordinating: AnyObject {
     func didRequestSignIn()
 }
 
-class AuthCoordinator: CoordinatorProtocol {
+class AuthCoordinator: BaseCoordinator {
 
-    var childCoordinators = [CoordinatorProtocol]()
-    var navigationController: UINavigationController
-    var assembler: Assembler
+    private weak var parentCoordinator: RootCoordinator?
 
-    private weak var parent: RootCoordinator?
+    init(
+        navigationController: UINavigationController,
+        parentCoordinator: RootCoordinator
+    ) {
+        self.parentCoordinator = parentCoordinator
 
-    init(navigationController: UINavigationController, parent: RootCoordinator?) {
-        self.parent = parent
-        self.navigationController = navigationController
-        self.assembler = Assembler([AuthAssembly()], parent: parent?.assembler)
+        super.init(parent: parentCoordinator)
     }
 
     func start() {
@@ -41,7 +39,7 @@ class AuthCoordinator: CoordinatorProtocol {
 extension AuthCoordinator: SignUpCoordinating {
 
     func didSignUp() {
-        parent?.coordinatorDidAuthenticate(self)
+        parentCoordinator?.coordinatorDidAuthenticate(self)
     }
 
     func didRequestSignIn() {
@@ -52,7 +50,7 @@ extension AuthCoordinator: SignUpCoordinating {
 extension AuthCoordinator: SignInCoordinating {
 
     func didSignIn() {
-        parent?.coordinatorDidAuthenticate(self)
+        parentCoordinator?.coordinatorDidAuthenticate(self)
     }
 
     func didRequestSignUp() {
